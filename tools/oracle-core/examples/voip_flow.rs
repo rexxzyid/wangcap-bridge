@@ -45,7 +45,7 @@ fn offer_stanza(caller: &Jid, now: u64) -> Node {
                 .build(),
             // `uncompressed="1"` is what tells the engine the blob is plain.
             // Without it, it reads the bytes as compressed and reports
-            // "unexpected compressed voip params". whatsapp-rust sets the same
+            // "unexpected compressed voip params". wangcap-bridge sets the same
             // attribute when it builds an accept.
             NodeBuilder::new("voip_settings")
                 .attr("uncompressed", "1")

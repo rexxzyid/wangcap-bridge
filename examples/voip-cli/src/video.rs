@@ -21,7 +21,7 @@ use tokio::io::{AsyncReadExt, AsyncWriteExt};
 use tokio::process::{Child, Command};
 use wacore::voip::h264::{AnnexBAuSplitter, au_has_idr, nal_unit_type, split_annexb};
 use wacore::voip::rtp::VIDEO_CLOCK_RATE;
-use whatsapp_rust::voip::{VideoFrame, VideoSource};
+use wangcap_bridge::voip::{VideoFrame, VideoSource};
 
 /// The NAL-unit type of each NAL in an Annex-B access unit (5=IDR, 7=SPS, 8=PPS, 1=non-IDR, ...),
 /// for diagnostics comparing our outbound AUs against the decodable inbound ones.

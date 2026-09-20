@@ -5096,7 +5096,7 @@ fn receive_logs_for(
     msg_id: &str,
 ) -> Vec<(log::Level, String)> {
     session
-        .records_for("whatsapp_rust::message::receive")
+        .records_for("wangcap_bridge::message::receive")
         .into_iter()
         .filter(|(_, message)| message.contains(msg_id))
         .collect()
@@ -13150,7 +13150,7 @@ async fn addon_decrypts_right_after_capture_without_flush() {
 // ===========================================================================
 // Empirical steady-state session-decrypt benchmark (ignored; run explicitly).
 //
-//   cargo test -p whatsapp-rust --release bench_session_decrypt_throughput \
+//   cargo test -p wangcap-bridge --release bench_session_decrypt_throughput \
 //       -- --ignored --nocapture
 //
 // Wall-clock gives throughput; for deterministic CPU-instructions and

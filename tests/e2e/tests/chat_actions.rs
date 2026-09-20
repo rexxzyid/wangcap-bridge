@@ -2,7 +2,7 @@
 
 use e2e_tests::TestClient;
 use log::info;
-use whatsapp_rust::waproto::whatsapp as wa;
+use wangcap_bridge::waproto::whatsapp as wa;
 
 // Note: These tests verify the full app state mutation pipeline (encode → encrypt →
 // send IQ → server acknowledgement). The mock server cannot decrypt mutations back,

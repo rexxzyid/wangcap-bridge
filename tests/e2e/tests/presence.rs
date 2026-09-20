@@ -1,7 +1,7 @@
 use e2e_tests::TestClient;
 use log::info;
 use wacore::types::events::Event;
-use whatsapp_rust::NodeFilter;
+use wangcap_bridge::NodeFilter;
 
 #[tokio::test]
 async fn test_typing_indicator() -> anyhow::Result<()> {

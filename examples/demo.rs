@@ -8,8 +8,8 @@
 use std::time::Duration;
 
 use log::{error, info};
-use whatsapp_rust::pair_code::PairCodeOptions;
-use whatsapp_rust::prelude::*;
+use wangcap_bridge::pair_code::PairCodeOptions;
+use wangcap_bridge::prelude::*;
 
 const PING_TRIGGER: &str = "🦀ping";
 const SEND_TRIGGER: &str = "🦀send";

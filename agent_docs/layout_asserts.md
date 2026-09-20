@@ -123,31 +123,31 @@ cargo test -p wacore --lib a_device_list_record_fits_sixty_four_bytes
 cargo test -p wacore --lib mutation_mac_entry_layout_is_smaller_without_capacity_words
 cargo test -p wacore --lib sparse_result_layout_stays_bounded
 cargo test -p wacore --lib retained_bytes_per_participant_stay_bounded
-cargo test -p whatsapp-rust --lib flattened_slot_reuses_entry_tail_padding
-cargo test -p whatsapp-rust --lib runtime_config_is_compact
-cargo test -p whatsapp-rust --lib queued_chat_message_keeps_two_handles
-cargo test -p whatsapp-rust --lib send_futures_stay_small
-cargo test -p whatsapp-rust --lib pdo_alias_claim_stays_small
-cargo test -p whatsapp-rust --lib retained_bytes_per_device_stay_bounded
-cargo test -p whatsapp-rust --lib an_unbounded_cache_stores_plain_slots_without_metadata
-cargo test -p whatsapp-rust --lib dispatch_gate_slot_stays_below_the_spelled_out_identity
-cargo test -p whatsapp-rust --lib client_size_pins_runtime_cache_config_saving
-cargo test -p whatsapp-rust --features client-lifecycle,plugins --lib client_size_pins_runtime_cache_config_saving
-cargo test -p whatsapp-rust --features bench-harness,client-lifecycle,debug-snapshots,legacy-session-interop,metrics,passkey,plugins,signal,sqlite-storage,test-support,tokio-native,tokio-runtime,tokio-transport,tracing,ureq-client,voip,voip-encoded,voip-libopus,voip-mlow,voip-relay-native,voip-runtime,whatsapp-rust-sqlite-storage --lib client_size_pins_runtime_cache_config_saving
-cargo test -p whatsapp-rust --lib group_devices_memo_retained_bytes_stay_bounded
-cargo test -p whatsapp-rust --lib the_post_login_task_does_not_carry_the_fresh_pairing_arm
-cargo test -p whatsapp-rust --lib the_server_sync_task_does_not_carry_the_sync_engine
-cargo test -p whatsapp-rust --lib test_manager_fields_are_inline
-cargo test -p whatsapp-rust --lib handing_back_a_connection_costs_the_caller_nothing
+cargo test -p wangcap-bridge --lib flattened_slot_reuses_entry_tail_padding
+cargo test -p wangcap-bridge --lib runtime_config_is_compact
+cargo test -p wangcap-bridge --lib queued_chat_message_keeps_two_handles
+cargo test -p wangcap-bridge --lib send_futures_stay_small
+cargo test -p wangcap-bridge --lib pdo_alias_claim_stays_small
+cargo test -p wangcap-bridge --lib retained_bytes_per_device_stay_bounded
+cargo test -p wangcap-bridge --lib an_unbounded_cache_stores_plain_slots_without_metadata
+cargo test -p wangcap-bridge --lib dispatch_gate_slot_stays_below_the_spelled_out_identity
+cargo test -p wangcap-bridge --lib client_size_pins_runtime_cache_config_saving
+cargo test -p wangcap-bridge --features client-lifecycle,plugins --lib client_size_pins_runtime_cache_config_saving
+cargo test -p wangcap-bridge --features bench-harness,client-lifecycle,debug-snapshots,legacy-session-interop,metrics,passkey,plugins,signal,sqlite-storage,test-support,tokio-native,tokio-runtime,tokio-transport,tracing,ureq-client,voip,voip-encoded,voip-libopus,voip-mlow,voip-relay-native,voip-runtime,wangcap-bridge-sqlite-storage --lib client_size_pins_runtime_cache_config_saving
+cargo test -p wangcap-bridge --lib group_devices_memo_retained_bytes_stay_bounded
+cargo test -p wangcap-bridge --lib the_post_login_task_does_not_carry_the_fresh_pairing_arm
+cargo test -p wangcap-bridge --lib the_server_sync_task_does_not_carry_the_sync_engine
+cargo test -p wangcap-bridge --lib test_manager_fields_are_inline
+cargo test -p wangcap-bridge --lib handing_back_a_connection_costs_the_caller_nothing
 cargo test -p wacore --lib event_stays_under_its_size_ceiling
 cargo test -p wacore-libsignal --lib skipped_message_keys_are_reported_at_their_in_memory_cost
-cargo test -p whatsapp-rust-ureq-http-client --lib provenance_reconstructs_the_stored_report
+cargo test -p wangcap-bridge-ureq-http-client --lib provenance_reconstructs_the_stored_report
 ```
 
 The client-size pin is feature sensitive: run all three variants above. The
 long one is the CI feature set, spelled out so the procedure does not
 depend on remembering it; regenerate it with
-`cargo xt ci test-features whatsapp-rust` when `Cargo.toml` gains or
+`cargo xt ci test-features wangcap-bridge` when `Cargo.toml` gains or
 loses a feature, since the set follows the manifest.
 
 The sender-key budgets are the only ones with 32-bit branches. The

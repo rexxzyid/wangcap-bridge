@@ -1,4 +1,4 @@
-//! Wiring observability for `whatsapp-rust`.
+//! Wiring observability for `wangcap-bridge`.
 //!
 //! Run with:
 //!     cargo run --example observability --features tracing
@@ -13,7 +13,7 @@
 //!    bridges the library's existing `log::{info,warn,error}!` calls into
 //!    tracing, so they become events attached to the active `wa.*` span.
 //! 2. Span/level/target filtering is driven by `RUST_LOG` (EnvFilter), e.g.
-//!    `RUST_LOG="info,whatsapp_rust=debug,wacore=debug"`. The library groups
+//!    `RUST_LOG="info,wangcap_bridge=debug,wacore=debug"`. The library groups
 //!    spans under `wa.*` names and reuses its `target: "Client/AppState"`-style
 //!    targets, so you can filter per area.
 //!
@@ -24,7 +24,7 @@
 //! PII note: the bridged `log` lines surface alongside the redacted `wa.*` spans.
 //! The library renders JIDs and Signal addresses in its own log messages through
 //! `Jid::observe()` / `observe_protocol_address()` (phone numbers become
-//! `pn#<keyed-token>`), so the `whatsapp_rust`/`wacore` log lines carry the same
+//! `pn#<keyed-token>`), so the `wangcap_bridge`/`wacore` log lines carry the same
 //! redaction as the span fields. Your own application code is a separate leak
 //! path: any raw JID/phone you log reaches the exporter under your own targets,
 //! and dropping the library targets does nothing for it — scrub your app's logs
@@ -35,7 +35,7 @@ fn main() {
     use tracing_subscriber::prelude::*;
 
     let filter = tracing_subscriber::EnvFilter::try_from_default_env()
-        .unwrap_or_else(|_| tracing_subscriber::EnvFilter::new("info,whatsapp_rust=debug"));
+        .unwrap_or_else(|_| tracing_subscriber::EnvFilter::new("info,wangcap_bridge=debug"));
 
     tracing_subscriber::registry()
         .with(filter)
@@ -56,7 +56,7 @@ fn main() {
 
     tracing::info!("observability initialized — RUST_LOG drives filtering");
 
-    // From here you would build and run a `whatsapp_rust::Client` as usual; all
+    // From here you would build and run a `wangcap_bridge::Client` as usual; all
     // connect / recv / decrypt / send / iq / appstate / pair / media spans and
     // the bridged log events will flow into the subscriber above.
 }

@@ -29,7 +29,7 @@
 >
 > And the stanza is a stanza. `sendSignalingXMPP_js_sync` is implemented rather
 > than stubbed so the bytes are copied while they exist — #855 frees them on
-> return — and decoding them with **whatsapp-rust's** parser, which shares no
+> return — and decoding them with **wangcap-bridge's** parser, which shares no
 > lineage with the engine, yields:
 >
 > ```xml

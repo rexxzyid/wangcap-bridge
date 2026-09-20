@@ -28,7 +28,7 @@ use divan::black_box;
 use std::sync::{Arc, OnceLock};
 use std::time::Duration;
 use wacore::store::traits::SignalStore;
-use whatsapp_rust_sqlite_storage::SqliteStore;
+use wangcap_bridge_sqlite_storage::SqliteStore;
 
 fn main() {
     divan::main();

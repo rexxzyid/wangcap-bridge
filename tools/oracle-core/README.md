@@ -341,7 +341,7 @@ for call in runtime.signaling() {
 }
 ```
 
-An origination on a bare engine produces one, and whatsapp-rust's parser —
+An origination on a bare engine produces one, and wangcap-bridge's parser —
 sharing no lineage with the engine — decodes it:
 
 ```xml

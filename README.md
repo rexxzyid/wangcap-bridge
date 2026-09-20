@@ -1,4 +1,4 @@
-# whatsapp-rust
+# wangcap-bridge
 
 [![CodSpeed](https://img.shields.io/endpoint?url=https://codspeed.io/badge.json)](https://app.codspeed.io/oxidezap/whatsapp-rust?utm_source=badge)
 
@@ -31,12 +31,12 @@ For the full API reference and guides, see the **[documentation](https://whatsap
 
 ```toml
 [dependencies]
-whatsapp-rust = "0.7"
+wangcap-bridge = "0.7"
 tokio = { version = "1", features = ["macros", "rt-multi-thread", "signal"] }
 ```
 
 ```rust,no_run
-use whatsapp_rust::prelude::*;
+use wangcap_bridge::prelude::*;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -63,7 +63,7 @@ The default cargo features wire up the Tokio WebSocket transport, the ureq HTTP 
 
 Native plugin APIs are opt-in: use `features = ["plugins"]` when implementing a
 plugin in the application. Published plugin crates can enable that feature in
-their own `whatsapp-rust` dependency, and Cargo feature unification activates it
+their own `wangcap-bridge` dependency, and Cargo feature unification activates it
 for the consumer. See [`agent_docs/plugin_architecture.md`](agent_docs/plugin_architecture.md)
 for the host contract and type-safe API example.
 
@@ -106,23 +106,23 @@ Measurements per flag, the CPU floor each one raises, why `+adx` and
 
 ### One dependency is enough
 
-`whatsapp-rust` re-exports the whole stack, so you never need to declare the sibling crates (`wacore`, `wacore-binary`, `waproto`, `whatsapp-rust-tokio-transport`, `whatsapp-rust-ureq-http-client`, `whatsapp-rust-sqlite-storage`) yourself, including when pinning a git revision:
+`wangcap-bridge` re-exports the whole stack, so you never need to declare the sibling crates (`wacore`, `wacore-binary`, `waproto`, `wangcap-bridge-tokio-transport`, `wangcap-bridge-ureq-http-client`, `wangcap-bridge-sqlite-storage`) yourself, including when pinning a git revision:
 
 ```toml
 [dependencies]
-whatsapp-rust = { git = "https://github.com/oxidezap/whatsapp-rust", rev = "<commit>" }
+wangcap-bridge = { git = "https://github.com/oxidezap/whatsapp-rust", rev = "<commit>" }
 ```
 
-- Protobuf types: `whatsapp_rust::waproto::whatsapp` (aliased as `wa` in the prelude)
-- Core protocol/types: `whatsapp_rust::wacore`, `whatsapp_rust::wacore_binary` (`Jid` is also at the crate root)
-- Bundled implementations: `whatsapp_rust::transport::TokioWebSocketTransportFactory`, `whatsapp_rust::http::UreqHttpClient`, `whatsapp_rust::store::SqliteStore`, each behind its default-on cargo feature (`tokio-transport`, `ureq-client`, `sqlite-storage`)
+- Protobuf types: `wangcap_bridge::waproto::whatsapp` (aliased as `wa` in the prelude)
+- Core protocol/types: `wangcap_bridge::wacore`, `wangcap_bridge::wacore_binary` (`Jid` is also at the crate root)
+- Bundled implementations: `wangcap_bridge::transport::TokioWebSocketTransportFactory`, `wangcap_bridge::http::UreqHttpClient`, `wangcap_bridge::store::SqliteStore`, each behind its default-on cargo feature (`tokio-transport`, `ureq-client`, `sqlite-storage`)
 
 With `default-features = false`, pick only what you need (e.g. `features = ["tokio-runtime", "tokio-transport", "ureq-client"]` for a custom store while keeping the bundled networking).
 
 To run the bot in the background instead of blocking, use `spawn()` and keep the handle:
 
 ```rust,no_run
-use whatsapp_rust::prelude::*;
+use wangcap_bridge::prelude::*;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -150,7 +150,7 @@ cargo run --example demo -- -p 15551234567 -c MYCODE  # Custom pair code
 ## Project Structure
 
 ```text
-whatsapp-rust/
+wangcap-bridge/
 ├── src/                    # Main client library
 ├── wacore/                 # Platform-agnostic core (no runtime deps)
 │   ├── binary/             # WhatsApp binary protocol

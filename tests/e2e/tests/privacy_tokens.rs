@@ -7,7 +7,7 @@ use wacore::store::traits::TcTokenEntry;
 use wacore::types::events::Event;
 use wacore_binary::OwnedNodeRef;
 use wacore_binary::node::Node;
-use whatsapp_rust::{NodeFilter, SendOptions};
+use wangcap_bridge::{NodeFilter, SendOptions};
 
 fn has_descendant(node: &Node, tag: &str) -> bool {
     node.children().is_some_and(|children| {
@@ -20,7 +20,7 @@ fn has_descendant(node: &Node, tag: &str) -> bool {
 async fn send_first_message_and_expect_463(
     sender: &TestClient,
     recipient: &mut TestClient,
-    recipient_jid: &whatsapp_rust::Jid,
+    recipient_jid: &wangcap_bridge::Jid,
     text: &str,
 ) -> anyhow::Result<Arc<OwnedNodeRef>> {
     let msg_id = format!("E2E463{}", uuid::Uuid::new_v4().simple());
@@ -30,7 +30,7 @@ async fn send_first_message_and_expect_463(
 async fn send_message_and_expect_463_with_id(
     sender: &TestClient,
     recipient: &mut TestClient,
-    recipient_jid: &whatsapp_rust::Jid,
+    recipient_jid: &wangcap_bridge::Jid,
     text: &str,
     msg_id: String,
 ) -> anyhow::Result<Arc<OwnedNodeRef>> {
@@ -706,7 +706,7 @@ async fn test_clearing_nct_salt_locally_makes_first_contact_fail_again() -> anyh
     client_b
         .client
         .persistence_manager()
-        .process_command(whatsapp_rust::store::commands::DeviceCommand::SetNctSalt(
+        .process_command(wangcap_bridge::store::commands::DeviceCommand::SetNctSalt(
             None,
         ))
         .await;

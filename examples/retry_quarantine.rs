@@ -31,8 +31,8 @@ use std::sync::atomic::Ordering;
 use log::{error, info};
 use portable_atomic::AtomicU64;
 use wacore::time::Instant;
-use whatsapp_rust::RetryAdmission;
-use whatsapp_rust::prelude::*;
+use wangcap_bridge::RetryAdmission;
+use wangcap_bridge::prelude::*;
 
 /// Lazy monotonic token bucket. Pure given `now`/`burst`/`refill_per_sec`, so a
 /// lowered burst clamps on the next access and an idle pair never accrues an

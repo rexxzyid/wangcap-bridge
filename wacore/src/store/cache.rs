@@ -11,7 +11,7 @@ use std::time::Duration;
 /// Backend trait for pluggable cache storage.
 ///
 /// Keys and values are opaque strings / bytes — the typed cache wrapper in
-/// `whatsapp-rust` handles serialization via serde.
+/// `wangcap-bridge` handles serialization via serde.
 ///
 /// # Namespaces
 ///

@@ -6,18 +6,18 @@ use std::sync::Arc;
 use std::time::Duration;
 use wacore::types::events::Event;
 use wacore_binary::{Jid, Node, Server, builder::NodeBuilder};
-use whatsapp_rust::{test_support::CallFixture, voip::CallHandle};
+use wangcap_bridge::{test_support::CallFixture, voip::CallHandle};
 
 fn start(
     fixture: &CallFixture,
-) -> tokio::task::JoinHandle<Result<CallHandle, whatsapp_rust::CallError>> {
+) -> tokio::task::JoinHandle<Result<CallHandle, wangcap_bridge::CallError>> {
     start_with_video(fixture, true)
 }
 
 fn start_with_video(
     fixture: &CallFixture,
     video: bool,
-) -> tokio::task::JoinHandle<Result<CallHandle, whatsapp_rust::CallError>> {
+) -> tokio::task::JoinHandle<Result<CallHandle, wangcap_bridge::CallError>> {
     let client = fixture.client().clone();
     let peer = fixture.peer().clone();
     tokio::spawn(async move {
@@ -535,7 +535,7 @@ async fn peer_video_queue_keeps_sender_state_and_upgrade_token_in_order() -> Res
     );
     assert!(matches!(
         handle.accept_video(request, source, sink).await,
-        Err(whatsapp_rust::CallError::VideoUpgradeExpired)
+        Err(wangcap_bridge::CallError::VideoUpgradeExpired)
     ));
     assert_eq!(
         handle.peer_jid(),
@@ -614,7 +614,7 @@ async fn peer_video_metadata_reports_routed_sender_and_supplied_creator_without_
 #[test]
 fn upgrade_timeout_is_published_for_client_coordination() {
     assert_eq!(
-        whatsapp_rust::voip::VIDEO_UPGRADE_TIMEOUT,
+        wangcap_bridge::voip::VIDEO_UPGRADE_TIMEOUT,
         Duration::from_secs(5)
     );
 }
@@ -669,7 +669,7 @@ async fn handle_resumes_local_video_direction_in_video_call() -> Result<()> {
 
     let waiter = fixture
         .client()
-        .wait_for_sent_node(whatsapp_rust::NodeFilter::tag("call"));
+        .wait_for_sent_node(wangcap_bridge::NodeFilter::tag("call"));
 
     let (_source_tx, source) = async_channel::bounded::<Vec<u8>>(1);
     let (sink, _sink_rx) = async_channel::bounded::<wacore::voip::VideoFrame>(1);

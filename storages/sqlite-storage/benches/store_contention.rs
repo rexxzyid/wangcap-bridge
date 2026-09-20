@@ -20,7 +20,7 @@ use std::task::Poll;
 use std::time::Duration;
 use wacore::appstate::processor::AppStateMutationMAC;
 use wacore::store::traits::{AppSyncStore, DeviceInfo, DeviceListRecord, ProtocolStore};
-use whatsapp_rust_sqlite_storage::{SqliteStore, SqliteStoreConfig};
+use wangcap_bridge_sqlite_storage::{SqliteStore, SqliteStoreConfig};
 
 fn main() {
     divan::main();

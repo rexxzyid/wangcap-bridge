@@ -83,7 +83,7 @@
 //!
 //! ```no_run
 //! use std::sync::Arc;
-//! use whatsapp_rust::client::interceptor::{Interception, StanzaInterceptor};
+//! use wangcap_bridge::client::interceptor::{Interception, StanzaInterceptor};
 //! use wacore_binary::node::OwnedNodeRef;
 //!
 //! struct Vendor;
@@ -99,7 +99,7 @@
 //!     }
 //! }
 //!
-//! # fn example(client: &Arc<whatsapp_rust::Client>) {
+//! # fn example(client: &Arc<wangcap_bridge::Client>) {
 //! let handle = client.add_stanza_interceptor(Arc::new(Vendor));
 //! // Dropping `handle` removes it.
 //! # let _ = handle;

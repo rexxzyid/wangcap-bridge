@@ -8,8 +8,8 @@
 //! The resulting [`wa::Message`] is sent with `client.send_message(to, msg)`.
 //!
 //! ```no_run
-//! # fn build(upload: whatsapp_rust::upload::UploadResponse) {
-//! use whatsapp_rust::media::{self, ImageOptions};
+//! # fn build(upload: wangcap_bridge::upload::UploadResponse) {
+//! use wangcap_bridge::media::{self, ImageOptions};
 //! let _msg = media::image_message(upload, ImageOptions { caption: Some("hi".into()), ..Default::default() });
 //! # }
 //! ```

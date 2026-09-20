@@ -6,11 +6,11 @@
 //! sessions two ways and reports the resident-set delta per session.
 //!
 //! ```text
-//! cargo run -p whatsapp-rust-sqlite-storage --release \
+//! cargo run -p wangcap-bridge-sqlite-storage --release \
 //!     --example per_connection_memory -- <pools|handles> <sessions> <cache_kib> [warm]
-//! cargo run -p whatsapp-rust-sqlite-storage --release \
+//! cargo run -p wangcap-bridge-sqlite-storage --release \
 //!     --example per_connection_memory -- writes <sessions> <read_pool_size>
-//! cargo run -p whatsapp-rust-sqlite-storage --release \
+//! cargo run -p wangcap-bridge-sqlite-storage --release \
 //!     --example per_connection_memory -- compile-options
 //! ```
 //!
@@ -39,7 +39,7 @@ use std::time::Duration;
 
 use diesel::prelude::*;
 use wacore::store::traits::SignalStore as _;
-use whatsapp_rust_sqlite_storage::{SqliteStore, SqliteStoreConfig};
+use wangcap_bridge_sqlite_storage::{SqliteStore, SqliteStoreConfig};
 
 /// Rows of ~1 KiB each: enough database that a full scan can fill a 512 KiB
 /// page cache several times over, so the cap is what bounds a warm connection.

@@ -35,7 +35,7 @@
 //! asserts that too, so the day one appears the weakening is visible rather
 //! than silent.
 
-use whatsapp_rust_wam_catalog::{Channel, WamBuffer, call_sites_for, enums, events};
+use wangcap_bridge_wam_catalog::{Channel, WamBuffer, call_sites_for, enums, events};
 
 use crate::runtime::PendingEvent;
 
@@ -132,7 +132,7 @@ fn write(buffer: &mut WamBuffer, event: &PendingEvent) {
 }
 
 fn name_of(event: &PendingEvent) -> &'static str {
-    use whatsapp_rust_wam_catalog::WamEvent as _;
+    use wangcap_bridge_wam_catalog::WamEvent as _;
     match event {
         PendingEvent::E2eMessageRecv(_) => events::E2eMessageRecv::NAME,
         PendingEvent::MessageReceive(_) => events::MessageReceive::NAME,
@@ -244,13 +244,13 @@ fn every_field_this_plugin_writes_is_one_wa_web_writes() {
 
 #[test]
 fn no_derivation_writes_an_undeclared_field() {
-    use whatsapp_rust::wacore::types::events::EncDecryptFailureReason;
-    use whatsapp_rust::wacore::types::message::{AddressingMode, MessageInfo, MessageSource};
-    use whatsapp_rust::wacore::types::wire_enums::EncMediaType;
-    use whatsapp_rust::wacore_binary::builder::NodeBuilder;
-    use whatsapp_rust::wacore_binary::marshal::marshal;
-    use whatsapp_rust::wacore_binary::util::unpack;
-    use whatsapp_rust::wacore_binary::{Jid, OwnedNodeRef, Server};
+    use wangcap_bridge::wacore::types::events::EncDecryptFailureReason;
+    use wangcap_bridge::wacore::types::message::{AddressingMode, MessageInfo, MessageSource};
+    use wangcap_bridge::wacore::types::wire_enums::EncMediaType;
+    use wangcap_bridge::wacore_binary::builder::NodeBuilder;
+    use wangcap_bridge::wacore_binary::marshal::marshal;
+    use wangcap_bridge::wacore_binary::util::unpack;
+    use wangcap_bridge::wacore_binary::{Jid, OwnedNodeRef, Server};
 
     // Inputs chosen so every optional field a derivation can fill is filled:
     // a lid sender on a companion device, in a group, carrying a media type,

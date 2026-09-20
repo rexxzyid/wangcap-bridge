@@ -5,10 +5,10 @@
 //! gaining a namespace, a module or a line of surface for a subsystem it does
 //! not otherwise know about.
 
-use whatsapp_rust::wacore::iq::spec::IqSpec;
-use whatsapp_rust::wacore::request::InfoQuery;
-use whatsapp_rust::wacore_binary::builder::NodeBuilder;
-use whatsapp_rust::wacore_binary::{Jid, NodeContent, NodeRef, Server};
+use wangcap_bridge::wacore::iq::spec::IqSpec;
+use wangcap_bridge::wacore::request::InfoQuery;
+use wangcap_bridge::wacore_binary::builder::NodeBuilder;
+use wangcap_bridge::wacore_binary::{Jid, NodeContent, NodeRef, Server};
 
 /// The namespace the official client uploads a `regular`-channel buffer under.
 pub const STATS_NAMESPACE: &str = "w:stats";
@@ -52,7 +52,7 @@ impl IqSpec for SendBufferSpec<'_> {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use whatsapp_rust::wacore::request::InfoQueryType;
+    use wangcap_bridge::wacore::request::InfoQueryType;
 
     #[test]
     fn the_request_matches_the_official_shape() {

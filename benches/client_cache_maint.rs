@@ -33,7 +33,7 @@ use std::sync::{Arc, OnceLock};
 use std::task::{Context, Poll, Waker};
 use std::time::Duration;
 use wacore_binary::jid::Jid;
-use whatsapp_rust::cache::Cache;
+use wangcap_bridge::cache::Cache;
 
 fn main() {
     divan::main();

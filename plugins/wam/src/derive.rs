@@ -12,15 +12,15 @@
 //! buffer if the body is never opened) but a correctness one: the envelope
 //! attributes are what the official client's own receive metrics are built from.
 
-use whatsapp_rust::wacore::types::events::{
+use wangcap_bridge::wacore::types::events::{
     EncDecryptFailed, EncDecryptFailureReason, MessageBatch,
 };
-use whatsapp_rust::wacore::types::message::{AddressingMode, MessageInfo};
-use whatsapp_rust::wacore::types::presence::ReceiptType;
-use whatsapp_rust::wacore::types::wire_enums::EncMediaType;
-use whatsapp_rust::wacore_binary::node::NodeRef;
-use whatsapp_rust::wacore_binary::{Jid, JidExt, Server};
-use whatsapp_rust_wam_catalog::{enums, events};
+use wangcap_bridge::wacore::types::message::{AddressingMode, MessageInfo};
+use wangcap_bridge::wacore::types::presence::ReceiptType;
+use wangcap_bridge::wacore::types::wire_enums::EncMediaType;
+use wangcap_bridge::wacore_binary::node::NodeRef;
+use wangcap_bridge::wacore_binary::{Jid, JidExt, Server};
+use wangcap_bridge_wam_catalog::{enums, events};
 
 /// The WAM device type for the sender of an inbound stanza.
 ///
@@ -417,11 +417,11 @@ pub fn from_enc_failure(failed: &EncDecryptFailed) -> Option<events::E2eMessageR
 #[cfg(test)]
 mod tests {
     use super::*;
-    use whatsapp_rust::wacore::types::message::MessageSource;
-    use whatsapp_rust::wacore_binary::builder::NodeBuilder;
-    use whatsapp_rust::wacore_binary::marshal::marshal;
-    use whatsapp_rust::wacore_binary::util::unpack;
-    use whatsapp_rust::wacore_binary::{Node, OwnedNodeRef};
+    use wangcap_bridge::wacore::types::message::MessageSource;
+    use wangcap_bridge::wacore_binary::builder::NodeBuilder;
+    use wangcap_bridge::wacore_binary::marshal::marshal;
+    use wangcap_bridge::wacore_binary::util::unpack;
+    use wangcap_bridge::wacore_binary::{Node, OwnedNodeRef};
 
     /// A fictitious sender. No test in this crate uses a real number.
     fn jid(user: &str, server: Server, device: u16) -> Jid {

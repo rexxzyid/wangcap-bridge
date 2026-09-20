@@ -23,8 +23,8 @@ use std::sync::Mutex;
 
 use anyhow::Context;
 use log::{error, info};
-use whatsapp_rust::InboundDurabilityHook;
-use whatsapp_rust::prelude::*;
+use wangcap_bridge::InboundDurabilityHook;
+use wangcap_bridge::prelude::*;
 
 /// Idempotency key: stanza ids are only unique within a `(chat, sender)`.
 type CommitKey = (String, String, String);

@@ -1,7 +1,7 @@
 //! The VoIP module as a behavioural oracle.
 //!
 //! These tests call the real WhatsApp Web calling engine and assert on what it
-//! returns. They exist to be compared against whatsapp-rust: any constant or
+//! returns. They exist to be compared against wangcap-bridge: any constant or
 //! behaviour asserted here is the ground truth the Rust implementation has to
 //! match, taken from the shipped artifact rather than from a decompilation.
 //!
@@ -118,7 +118,7 @@ fn reports_its_sctp_ice_event_ids() {
 }
 
 /// The property the whole harness rests on: identical input, identical output.
-/// Without it, a difference between this and whatsapp-rust could never be
+/// Without it, a difference between this and wangcap-bridge could never be
 /// attributed to the implementation rather than to the run.
 #[test]
 fn is_deterministic_across_instances() {
@@ -147,7 +147,7 @@ fn is_deterministic_across_instances() {
 }
 
 /// Calling the same function repeatedly in one instance must also be stable —
-/// a test that compares against whatsapp-rust will do exactly this.
+/// a test that compares against wangcap-bridge will do exactly this.
 #[test]
 fn is_deterministic_across_repeated_calls() {
     let mut runtime = voip_or_skip!();

@@ -13,8 +13,8 @@ Two crates, neither in the default build:
 
 | crate | what it is |
 | --- | --- |
-| `plugins/wam-catalog` (`whatsapp-rust-wam-catalog`) | the generated catalog (every event, field id, enum member, global and constant WA Web declares) plus the buffer codec |
-| `plugins/wam` (`whatsapp-rust-plugin-wam`) | the runtime: observation, sampling, buffering, flush, upload |
+| `plugins/wam-catalog` (`wangcap-bridge-wam-catalog`) | the generated catalog (every event, field id, enum member, global and constant WA Web declares) plus the buffer codec |
+| `plugins/wam` (`wangcap-bridge-plugin-wam`) | the runtime: observation, sampling, buffering, flush, upload |
 
 The `git diff` evidence for "the core gains nothing" is narrower than it sounds
 and is worth stating precisely: production code under `src/` and `wacore/` is

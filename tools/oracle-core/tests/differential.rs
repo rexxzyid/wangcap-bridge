@@ -1,6 +1,6 @@
 //! Differential tests: the captured module against a Rust implementation.
 //!
-//! This is the shape a whatsapp-rust comparison takes. The oracle supplies the
+//! This is the shape a wangcap-bridge comparison takes. The oracle supplies the
 //! ground truth, the Rust side supplies the candidate, and the test asserts they
 //! agree over a range of inputs rather than at a single point.
 

@@ -17,7 +17,7 @@ use std::sync::Arc;
 ///
 /// The source is load-bearing, not just provenance: it selects the write
 /// policy applied when the pair reaches the cache — see `lid_pn_write_policy`
-/// in the `whatsapp-rust` client, which mirrors WhatsApp Web's
+/// in the `wangcap-bridge` client, which mirrors WhatsApp Web's
 /// `createLidPnMappings` `switch (learningSource)`. Directed sources overwrite
 /// on any change; observational bulk sources (`Other` and friends, WA Web
 /// `"other"`) only seed new LIDs and re-resolve conflicts via a live query;

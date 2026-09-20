@@ -175,7 +175,7 @@ pub use wacore_binary::{Jid, Server};
 
 // Whole-crate re-exports so a git consumer needs a single dependency:
 // every `wacore::…`/`wacore_binary::…`/`waproto::…` path is reachable as
-// `whatsapp_rust::wacore::…` (etc.) without declaring the sibling crates.
+// `wangcap_bridge::wacore::…` (etc.) without declaring the sibling crates.
 pub use wacore;
 pub use wacore_binary;
 pub use waproto;
@@ -358,7 +358,7 @@ pub mod sync_task;
 pub mod version;
 
 /// One-import surface for the common bot path:
-/// `use whatsapp_rust::prelude::*;`.
+/// `use wangcap_bridge::prelude::*;`.
 pub mod prelude {
     pub use crate::bot::{Bot, BotBuilder, BotHandle, EventDelivery, MessageContext};
     pub use crate::client::{

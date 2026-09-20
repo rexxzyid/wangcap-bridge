@@ -322,7 +322,7 @@ impl Client {
     /// use wacore_binary::{Jid, Server};
     ///
     /// // This is a simplified example - real usage requires proper setup
-    /// # async fn example(client: &whatsapp_rust::Client) -> Result<(), Box<dyn std::error::Error>> {
+    /// # async fn example(client: &wangcap_bridge::Client) -> Result<(), Box<dyn std::error::Error>> {
     /// let query_node = NodeBuilder::new("presence")
     ///     .attr("type", "available")
     ///     .build();

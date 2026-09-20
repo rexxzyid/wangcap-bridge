@@ -131,7 +131,7 @@ impl CacheStores {
 /// # Example — tune TTL/capacity
 ///
 /// ```rust,ignore
-/// use whatsapp_rust::{CacheConfig, CacheEntryConfig};
+/// use wangcap_bridge::{CacheConfig, CacheEntryConfig};
 /// use std::time::Duration;
 ///
 /// let config = CacheConfig {
@@ -144,7 +144,7 @@ impl CacheStores {
 ///
 /// ```rust,ignore
 /// use std::sync::Arc;
-/// use whatsapp_rust::{CacheConfig, CacheStores};
+/// use wangcap_bridge::{CacheConfig, CacheStores};
 ///
 /// let redis = Arc::new(MyRedisCacheStore::new("redis://localhost:6379"));
 /// let config = CacheConfig {

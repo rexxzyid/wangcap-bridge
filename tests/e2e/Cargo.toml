@@ -20,16 +20,16 @@ tokio = { workspace = true, features = ["macros", "rt-multi-thread", "sync", "ti
 uuid = { workspace = true, features = ["v4"] }
 wacore = { path = "../../wacore", features = ["test-util"] }
 wacore-binary = { path = "../../wacore/binary" }
-whatsapp-rust = { path = "../..", default-features = false, features = [
+wangcap-bridge = { path = "../..", default-features = false, features = [
     "danger-skip-tls-verify",
     "tokio-runtime",
     "tokio-native",
     "signal",
 ] }
-whatsapp-rust-tokio-transport = { path = "../../transports/tokio-transport", features = [
+wangcap-bridge-tokio-transport = { path = "../../transports/tokio-transport", features = [
     "danger-skip-tls-verify",
 ] }
-whatsapp-rust-ureq-http-client = { path = "../../http_clients/ureq-client", features = [
+wangcap-bridge-ureq-http-client = { path = "../../http_clients/ureq-client", features = [
     "danger-skip-tls-verify",
 ] }
 

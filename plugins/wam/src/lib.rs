@@ -73,13 +73,13 @@ use std::sync::{Arc, OnceLock};
 
 use anyhow::{Context, Result};
 use log::warn;
-use whatsapp_rust::wacore::stanza::wire_tags::StanzaTag;
-use whatsapp_rust::wacore::types::events::{Event, EventHandler, EventInterest, EventKind};
-use whatsapp_rust::{
+use wangcap_bridge::wacore::stanza::wire_tags::StanzaTag;
+use wangcap_bridge::wacore::types::events::{Event, EventHandler, EventInterest, EventKind};
+use wangcap_bridge::{
     ClientPlugin, PluginCapability, PluginContext, PluginCoreEventSubscription, PluginFuture,
     PluginIq, PluginManifest, PluginTasks,
 };
-use whatsapp_rust_wam_catalog::events;
+use wangcap_bridge_wam_catalog::events;
 
 pub use identity::WamIdentity;
 pub use runtime::{PendingEvent, TickKind, UploadFailure, WamStats, WamUploader};
@@ -322,7 +322,7 @@ fn spawn_flush_loop(
     tasks.spawn_cooperative(async move {
         let mut writer = WamWriter::default();
         while worker.sleep(BUFFERING_INTERVAL).await.is_ok() {
-            let now = whatsapp_rust::wacore::time::now_utc().timestamp();
+            let now = wangcap_bridge::wacore::time::now_utc().timestamp();
             let mut roll = rand::random::<f64>;
             runtime
                 .tick(
@@ -348,7 +348,7 @@ fn spawn_flush_loop(
         runtime.observe(PendingEvent::WebWamForceFlush(
             events::WebWamForceFlush::default(),
         ));
-        let now = whatsapp_rust::wacore::time::now_utc().timestamp();
+        let now = wangcap_bridge::wacore::time::now_utc().timestamp();
         let mut roll = rand::random::<f64>;
         runtime
             .tick(
@@ -375,8 +375,8 @@ fn spawn_flush_loop(
 /// omits the class still means them: 429 is the one this repository already
 /// classifies as transient beside 5xx in `wacore::stats`, and 408 is the same
 /// statement about a request that never landed.
-fn refuses_this_buffer(err: &whatsapp_rust::PluginIqError) -> bool {
-    let whatsapp_rust::PluginIqError::Iq(whatsapp_rust::IqError::ServerError {
+fn refuses_this_buffer(err: &wangcap_bridge::PluginIqError) -> bool {
+    let wangcap_bridge::PluginIqError::Iq(wangcap_bridge::IqError::ServerError {
         code,
         error_type,
         ..
@@ -395,9 +395,9 @@ fn refuses_this_buffer(err: &whatsapp_rust::PluginIqError) -> bool {
 /// The core parses the `backoff` attribute and hands it over; dropping it here
 /// would leave the local curve guessing at a number the server had already
 /// given, and its first step is one second.
-fn server_directed_backoff(err: &whatsapp_rust::PluginIqError) -> Option<u32> {
+fn server_directed_backoff(err: &wangcap_bridge::PluginIqError) -> Option<u32> {
     match err {
-        whatsapp_rust::PluginIqError::Iq(whatsapp_rust::IqError::ServerError {
+        wangcap_bridge::PluginIqError::Iq(wangcap_bridge::IqError::ServerError {
             backoff, ..
         }) => *backoff,
         _ => None,
@@ -407,7 +407,7 @@ fn server_directed_backoff(err: &whatsapp_rust::PluginIqError) -> Option<u32> {
 /// Uploads through the plugin's IQ capability.
 struct IqUploader(PluginIq);
 
-#[whatsapp_rust::async_trait]
+#[wangcap_bridge::async_trait]
 impl WamUploader for IqUploader {
     async fn upload(&self, t: i64, buffer: &[u8]) -> Result<(), UploadFailure> {
         match self.0.execute(iq::SendBufferSpec { t, buffer }).await {
@@ -432,11 +432,11 @@ impl WamUploader for IqUploader {
 mod tests {
     use super::*;
     use std::sync::Arc;
-    use whatsapp_rust::wacore_binary::OwnedNodeRef;
-    use whatsapp_rust::wacore_binary::builder::NodeBuilder;
-    use whatsapp_rust::wacore_binary::marshal::marshal;
-    use whatsapp_rust::wacore_binary::util::unpack;
-    use whatsapp_rust::{IqError, PluginIqError};
+    use wangcap_bridge::wacore_binary::OwnedNodeRef;
+    use wangcap_bridge::wacore_binary::builder::NodeBuilder;
+    use wangcap_bridge::wacore_binary::marshal::marshal;
+    use wangcap_bridge::wacore_binary::util::unpack;
+    use wangcap_bridge::{IqError, PluginIqError};
 
     fn server_error(code: u16, error_type: Option<&str>) -> PluginIqError {
         let node = NodeBuilder::new("iq").attr("type", "error").build();

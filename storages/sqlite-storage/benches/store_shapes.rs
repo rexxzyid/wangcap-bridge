@@ -32,7 +32,7 @@ use wacore::store::traits::{
     AppSyncStore, DeviceInfo, DeviceListRecord, LidPnMappingEntry, MsgSecretEntry, MsgSecretStore,
     ProtocolStore,
 };
-use whatsapp_rust_sqlite_storage::SqliteStore;
+use wangcap_bridge_sqlite_storage::SqliteStore;
 
 fn main() {
     divan::main();

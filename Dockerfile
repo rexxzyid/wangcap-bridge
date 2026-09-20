@@ -1,11 +1,11 @@
-# whatsapp-rust Docker build
+# wangcap-bridge Docker build
 #
 # Produces a fully static musl binary running on a scratch (empty) container.
 # musl is preferred over glibc for long-running processes: predictable memory
 # usage with no fragmentation from glibc's per-thread arena allocator.
 #
-# Build:  docker build -t whatsapp-rust .
-# Run:    docker run -v whatsapp-data:/data whatsapp-rust
+# Build:  docker build -t wangcap-bridge .
+# Run:    docker run -v whatsapp-data:/data wangcap-bridge
 #
 # The /data volume persists the SQLite database across restarts. The image runs
 # unprivileged (uid 65532); use a named volume (as below) so it inherits that
@@ -17,7 +17,7 @@
 #   docker run --rm -v whatsapp-data:/data alpine chown -R 65532:65532 /data
 #
 # Pass --phone <number> for pair code auth:
-#   docker run -v whatsapp-data:/data whatsapp-rust --phone 15551234567
+#   docker run -v whatsapp-data:/data wangcap-bridge --phone 15551234567
 
 # --- Planner: extract dependency recipe ---
 FROM rust:alpine AS chef
@@ -75,7 +75,7 @@ COPY . .
 # The client lives in examples/demo.rs (the package no longer ships a bin); the
 # example artifact lands under release/examples/. Default features cover it.
 RUN cargo build --release --example demo --target "$(cat /rust-target)" \
-    && cp "target/$(cat /rust-target)/release/examples/demo" /app/whatsapp-rust-bin
+    && cp "target/$(cat /rust-target)/release/examples/demo" /app/wangcap-bridge-bin
 
 # Empty dirs to stage into the scratch image; the COPY --chown below grants them
 # to the unprivileged uid so /data (DB; a fresh named volume inherits the
@@ -86,8 +86,8 @@ RUN mkdir -p /newroot/data /newroot/tmp
 FROM scratch
 COPY --from=builder --chown=65532:65532 /newroot/tmp /tmp
 COPY --from=builder --chown=65532:65532 /newroot/data /data
-COPY --from=builder /app/whatsapp-rust-bin /whatsapp-rust
+COPY --from=builder /app/wangcap-bridge-bin /wangcap-bridge
 ENV TMPDIR=/tmp
 WORKDIR /data
 USER 65532:65532
-ENTRYPOINT ["/whatsapp-rust"]
+ENTRYPOINT ["/wangcap-bridge"]

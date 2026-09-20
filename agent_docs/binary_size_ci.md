@@ -10,7 +10,7 @@ All metrics come from one release build with symbols kept (`CARGO_PROFILE_RELEAS
 - **bin .text** — invariant to strip; the signal for monomorphization bloat.
 - **bin allocated (text+data+bss)** — catches static data tables that don't show in .text.
 - **.text per crate** — `cargo bloat --crates` attribution (workspace crates + std as individual series, the rest aggregated as "other deps").
-- **llvm-lines** (wacore, whatsapp-rust lib) — LLVM IR lines and monomorphization copies, pre-link and cheap.
+- **llvm-lines** (wacore, wangcap-bridge lib) — LLVM IR lines and monomorphization copies, pre-link and cheap.
 - **deps crates (Cargo.lock)** — new-dependency canary.
 
 Do NOT switch any metric to rlib size: rlibs carry un-monomorphized generics plus metadata, so cross-crate instantiation bloat (the dominant class found in the 2026-06 audit) never shows up there.
@@ -66,4 +66,4 @@ cost of a VoIP parser in a VoIP-enabled binary.
 
 `[profile.release.package.*]` in the root `Cargo.toml` builds the off-hot-path crates at `opt-level = "s"`/`"z"` instead of 3. Crates that run per connection / per sync / per request rather than per message — persistence (Diesel/SQLite), media HTTP (ureq), TLS PKI — trade a little runtime speed for size; the per-message/per-frame crypto/protocol crates (libsignal, wacore-binary, waproto, prost, aes, sha2, hkdf, flate2, curve25519, and wacore-noise — whose `NoiseCipher` runs the transport AEAD on every frame) stay at 3. The overrides take effect under fat LTO and cut ~530 KiB off the stripped `demo` (~5%).
 
-Pitfall: `cargo bloat`'s per-crate `.text` is attribution guesswork, and `opt-level` changes shift where LTO accounts for inlined/monomorphized code. After this change a few `.text <crate>` series move the "wrong" way (e.g. `whatsapp_rust_sqlite_storage` and `wacore_appstate` rise) even though the total falls. Trust `bin .text` and `bin size (stripped)` from `size`/`strip` — those are exact; the gate keys off them.
+Pitfall: `cargo bloat`'s per-crate `.text` is attribution guesswork, and `opt-level` changes shift where LTO accounts for inlined/monomorphized code. After this change a few `.text <crate>` series move the "wrong" way (e.g. `wangcap_bridge_sqlite_storage` and `wacore_appstate` rise) even though the total falls. Trust `bin .text` and `bin size (stripped)` from `size`/`strip` — those are exact; the gate keys off them.

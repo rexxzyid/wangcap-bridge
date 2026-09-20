@@ -1,4 +1,4 @@
-// `--all-features` feature-unifies extra deps onto `whatsapp-rust`, enlarging the
+// `--all-features` feature-unifies extra deps onto `wangcap-bridge`, enlarging the
 // `send_and_expect_text()` future past the default layout-query depth. Matches the
 // `512` already used in `src/lib.rs` / `examples/demo.rs`.
 #![recursion_limit = "512"]
@@ -14,11 +14,11 @@ use wacore::store::InMemoryBackend;
 use wacore::store::traits::{AppSyncStore, TcTokenEntry};
 use wacore::types::events::{ChannelEventHandler, Event};
 use wacore_binary::node::Node;
-use whatsapp_rust::Jid;
-use whatsapp_rust::bot::Bot;
-use whatsapp_rust::waproto::whatsapp as wa;
-use whatsapp_rust_tokio_transport::TokioWebSocketTransportFactory;
-use whatsapp_rust_ureq_http_client::UreqHttpClient;
+use wangcap_bridge::Jid;
+use wangcap_bridge::bot::Bot;
+use wangcap_bridge::waproto::whatsapp as wa;
+use wangcap_bridge_tokio_transport::TokioWebSocketTransportFactory;
+use wangcap_bridge_ureq_http_client::UreqHttpClient;
 
 /// Returns the mock server WebSocket URL from env, or the default.
 pub fn mock_server_url() -> String {
@@ -97,16 +97,16 @@ pub fn scenario_push_name(prefix: &str, flags: &[&str]) -> String {
 
 /// A connected client ready for testing, with its event receiver and run handle.
 pub struct TestClient {
-    pub client: Arc<whatsapp_rust::client::Client>,
+    pub client: Arc<wangcap_bridge::client::Client>,
     pub event_rx: async_channel::Receiver<Arc<Event>>,
-    pub run_handle: whatsapp_rust::bot::BotHandle,
+    pub run_handle: wangcap_bridge::bot::BotHandle,
     /// The concrete backend, retained for its test hooks
     /// (`session_batch_write_count`, `set_fail_session_writes`).
     pub backend: Arc<InMemoryBackend>,
 }
 
 async fn connect_diagnostics(
-    client: &whatsapp_rust::client::Client,
+    client: &wangcap_bridge::client::Client,
     backend: &InMemoryBackend,
 ) -> String {
     const TIMEOUT: std::time::Duration = std::time::Duration::from_secs(2);
@@ -123,11 +123,11 @@ async fn connect_diagnostics(
 }
 
 async fn collect_connect_diagnostics(
-    client: &whatsapp_rust::client::Client,
+    client: &wangcap_bridge::client::Client,
     backend: &InMemoryBackend,
 ) -> String {
     async fn session_status(
-        client: &whatsapp_rust::client::Client,
+        client: &wangcap_bridge::client::Client,
         jid: Option<Jid>,
     ) -> &'static str {
         match jid {
@@ -201,11 +201,11 @@ impl TestClient {
             .with_backend_arc(backend.clone())
             .with_transport_factory(transport_factory)
             .with_http_client(UreqHttpClient::new())
-            .with_runtime(whatsapp_rust::TokioRuntime)
+            .with_runtime(wangcap_bridge::TokioRuntime)
             // The mock server cannot sign its chain; scope the bypass to
             // these test clients instead of a global feature.
             .with_noise_cert_policy(
-                whatsapp_rust::handshake::NoiseCertPolicy::DangerSkipCertChainVerify,
+                wangcap_bridge::handshake::NoiseCertPolicy::DangerSkipCertChainVerify,
             )
             .with_version((2, 3000, 0));
 
@@ -333,12 +333,12 @@ impl TestClient {
         msg_id: &str,
     ) -> futures::channel::oneshot::Receiver<Arc<Node>> {
         self.client
-            .wait_for_sent_node(whatsapp_rust::NodeFilter::tag("message").attr("id", msg_id))
+            .wait_for_sent_node(wangcap_bridge::NodeFilter::tag("message").attr("id", msg_id))
     }
 
     pub fn next_sent_message_waiter(&self) -> futures::channel::oneshot::Receiver<Arc<Node>> {
         self.client
-            .wait_for_sent_node(whatsapp_rust::NodeFilter::tag("message"))
+            .wait_for_sent_node(wangcap_bridge::NodeFilter::tag("message"))
     }
 
     pub async fn nct_salt(&self) -> Option<Vec<u8>> {
@@ -675,7 +675,7 @@ pub fn text_msg(text: &str) -> wa::Message {
 
 /// Send a text message and wait for the receiver to get it. Returns the message ID.
 pub async fn send_and_expect_text(
-    sender: &whatsapp_rust::client::Client,
+    sender: &wangcap_bridge::client::Client,
     receiver: &mut TestClient,
     to: &Jid,
     text: &str,

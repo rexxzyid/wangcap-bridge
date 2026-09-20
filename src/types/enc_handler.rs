@@ -80,8 +80,8 @@ mod tests {
         // Build bot with custom handler and in-memory DB
         let backend = crate::test_utils::create_test_backend().await;
 
-        let transport = whatsapp_rust_tokio_transport::TokioWebSocketTransportFactory::new();
-        let http_client = whatsapp_rust_ureq_http_client::UreqHttpClient::new();
+        let transport = wangcap_bridge_tokio_transport::TokioWebSocketTransportFactory::new();
+        let http_client = wangcap_bridge_ureq_http_client::UreqHttpClient::new();
         let bot = Bot::builder()
             .with_backend_arc(backend)
             .with_transport_factory(transport)
@@ -112,8 +112,8 @@ mod tests {
         // Build bot with in-memory DB
         let backend = crate::test_utils::create_test_backend().await;
 
-        let transport = whatsapp_rust_tokio_transport::TokioWebSocketTransportFactory::new();
-        let http_client = whatsapp_rust_ureq_http_client::UreqHttpClient::new();
+        let transport = wangcap_bridge_tokio_transport::TokioWebSocketTransportFactory::new();
+        let http_client = wangcap_bridge_ureq_http_client::UreqHttpClient::new();
         let bot = Bot::builder()
             .with_backend_arc(backend)
             .with_transport_factory(transport)
@@ -140,8 +140,8 @@ mod tests {
         // Build bot without custom handlers but with in-memory DB
         let backend = crate::test_utils::create_test_backend().await;
 
-        let transport = whatsapp_rust_tokio_transport::TokioWebSocketTransportFactory::new();
-        let http_client = whatsapp_rust_ureq_http_client::UreqHttpClient::new();
+        let transport = wangcap_bridge_tokio_transport::TokioWebSocketTransportFactory::new();
+        let http_client = wangcap_bridge_ureq_http_client::UreqHttpClient::new();
         let bot = Bot::builder()
             .with_backend_arc(backend)
             .with_transport_factory(transport)

@@ -13,8 +13,8 @@
 use std::collections::BTreeMap;
 use std::sync::Mutex;
 
-use whatsapp_rust::async_trait;
-use whatsapp_rust_wam_catalog::Channel;
+use wangcap_bridge::async_trait;
+use wangcap_bridge_wam_catalog::Channel;
 
 /// One buffer waiting for the server to accept it.
 #[derive(Debug, Clone)]

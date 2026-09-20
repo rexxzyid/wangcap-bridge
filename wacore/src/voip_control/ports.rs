@@ -4,7 +4,7 @@
 //! speaker sink, and the encoded/video equivalents. They live in the neutral contract so a foreign
 //! backend can name them without the engine, and so the resident backend can be handed the same
 //! ports the facade already collects. The `voip` crate re-exports every one under its historical
-//! `whatsapp_rust::voip::*` path.
+//! `wangcap_bridge::voip::*` path.
 
 use std::sync::Arc;
 

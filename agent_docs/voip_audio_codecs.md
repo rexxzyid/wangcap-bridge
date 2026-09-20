@@ -212,7 +212,7 @@ decrypted packet and its RTP metadata.
 
 ```rust,ignore
 use bytes::Bytes;
-use whatsapp_rust::voip::{AudioFormat, EncodedAudioFrame};
+use wangcap_bridge::voip::{AudioFormat, EncodedAudioFrame};
 
 let (encoded_tx, encoded_rx) = async_channel::bounded::<Bytes>(3);
 let (playout_tx, playout_rx) = async_channel::bounded::<EncodedAudioFrame>(3);
@@ -250,12 +250,12 @@ preserves `Bytes` ownership until RTP/SRTP framing.
 ## CLI validation
 
 ```bash
-WA_AUDIO_CODEC=mlow cargo run -p whatsapp-rust-voip-cli --release -- listen accept
-WA_AUDIO_CODEC=opus cargo run -p whatsapp-rust-voip-cli --release -- listen accept
+WA_AUDIO_CODEC=mlow cargo run -p wangcap-bridge-voip-cli --release -- listen accept
+WA_AUDIO_CODEC=opus cargo run -p wangcap-bridge-voip-cli --release -- listen accept
 
-WA_AUDIO_CODEC=mlow cargo run -p whatsapp-rust-voip-cli --release \
+WA_AUDIO_CODEC=mlow cargo run -p wangcap-bridge-voip-cli --release \
   --no-default-features --features voip-mlow -- listen accept
-WA_AUDIO_CODEC=opus cargo run -p whatsapp-rust-voip-cli --release \
+WA_AUDIO_CODEC=opus cargo run -p wangcap-bridge-voip-cli --release \
   --no-default-features --features voip-opus -- listen accept
 ```
 

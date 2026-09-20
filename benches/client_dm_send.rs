@@ -21,7 +21,7 @@
 
 use std::collections::HashMap;
 use std::sync::{Mutex, OnceLock};
-use whatsapp_rust::bench_support::{DmAddressing, DmSendHarness};
+use wangcap_bridge::bench_support::{DmAddressing, DmSendHarness};
 
 fn main() {
     divan::main();

@@ -1,4 +1,4 @@
-//! Regression tests pinning whatsapp-rust to WA Web behavior (see
+//! Regression tests pinning wangcap-bridge to WA Web behavior (see
 //! `docs/captured-js/`). Assertions encode the **correct** state; a failure
 //! here means the implementation has regressed away from WA Web.
 //!

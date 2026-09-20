@@ -1,7 +1,7 @@
 //! Pure helpers for receipt stanza logic.
 //!
 //! These functions contain no runtime dependencies (`self`, `Client`, spawn, sleep).
-//! Orchestration and dispatch remain in `whatsapp-rust/src/receipt.rs`.
+//! Orchestration and dispatch remain in `wangcap-bridge/src/receipt.rs`.
 
 use crate::types::message::{MessageCategory, MessageInfo};
 use crate::types::presence::ReceiptType;
@@ -131,7 +131,7 @@ pub fn collect_simple_message_ids(
 ///
 /// NOTE: the message-dispatch hot path uses
 /// `crate::client::Client::should_send_delivery_receipt` (in the
-/// `whatsapp-rust` crate), which is authoritative and intentionally diverges
+/// `wangcap-bridge` crate), which is authoritative and intentionally diverges
 /// here (it also sends `<receipt class="status">` for status broadcasts,
 /// which this copy still skips). The self-fanout rule is shared via
 /// [`MessageSource::is_self_fanout`](crate::types::message::MessageSource::is_self_fanout).
@@ -348,7 +348,7 @@ mod tests {
     fn allow_self_fanout_with_recipient() {
         // Own outgoing message echoed back (is_from_me + recipient): needs a
         // sender receipt. A recipient-less own message (skip_own_non_peer_*)
-        // stays skipped. Mirrors the hot-path copy in the whatsapp-rust crate.
+        // stays skipped. Mirrors the hot-path copy in the wangcap-bridge crate.
         let info = MessageInfo {
             id: "FANOUT1".into(),
             source: MessageSource {

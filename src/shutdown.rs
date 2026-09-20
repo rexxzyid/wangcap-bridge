@@ -10,10 +10,10 @@
 /// signal arriving afterwards is delivered, not missed.
 ///
 /// ```no_run
-/// # async fn f(mut handle: whatsapp_rust::bot::BotHandle) {
+/// # async fn f(mut handle: wangcap_bridge::bot::BotHandle) {
 /// tokio::select! {
 ///     _ = &mut handle => {}
-///     _ = whatsapp_rust::shutdown_signal() => handle.shutdown().await,
+///     _ = wangcap_bridge::shutdown_signal() => handle.shutdown().await,
 /// }
 /// # }
 /// ```

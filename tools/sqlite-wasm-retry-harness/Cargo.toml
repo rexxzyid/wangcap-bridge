@@ -6,7 +6,7 @@ edition = "2024"
 [workspace]
 
 [dependencies]
-whatsapp-rust-sqlite-storage = { path = "../../storages/sqlite-storage", default-features = false, features = ["wasm-test", "test-util"] }
+wangcap-bridge-sqlite-storage = { path = "../../storages/sqlite-storage", default-features = false, features = ["wasm-test", "test-util"] }
 
 [dev-dependencies]
 js-sys = "=0.3.104"

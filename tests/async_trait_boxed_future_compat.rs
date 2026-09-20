@@ -11,7 +11,7 @@ use async_trait::async_trait;
 use std::sync::Arc;
 use tokio::sync::RwLock;
 use wacore_binary::Jid;
-use whatsapp_rust::client::Client;
+use wangcap_bridge::client::Client;
 
 #[async_trait]
 pub trait WhatsAppGateway: Send + Sync {

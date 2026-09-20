@@ -59,7 +59,7 @@ jobs:
             packages: -p wacore -p wacore-noise
             features: --features voip-mlow,bench-internals
           - name: proto-signal
-            packages: -p wacore-binary -p wacore-libsignal -p wacore-appstate -p whatsapp-rust-sqlite-storage
+            packages: -p wacore-binary -p wacore-libsignal -p wacore-appstate -p wangcap-bridge-sqlite-storage
           # The client crate's own benchmarks. Its fixture needs crate-private
           # internals a bench target cannot otherwise reach, so it builds with
           # the non-default `bench-harness` feature. Its own shard rather than a
@@ -73,7 +73,7 @@ jobs:
           # `--features` outright ("unexpected argument"), since by then the
           # benchmark binaries are already built and it only selects among them.
           - name: client
-            packages: -p whatsapp-rust
+            packages: -p wangcap-bridge
             features: --features bench-harness
     steps:
       - uses: actions/checkout@v7

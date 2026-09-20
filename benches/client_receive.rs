@@ -5,7 +5,7 @@
 //! group receives there are within a few microseconds of their crypto floor.
 //! Everything *around* the decrypt — classification, the signal cache
 //! checkout, the chat-lane and dedup bookkeeping, plaintext handling, the
-//! event bus, the delivery receipt — lives in the `whatsapp-rust` crate, and
+//! event bus, the delivery receipt — lives in the `wangcap-bridge` crate, and
 //! this target is what puts a number on it.
 //!
 //! The direct receive and `_burst` cases enter at `handle_incoming_message`
@@ -20,7 +20,7 @@
 
 use divan::black_box;
 use std::sync::OnceLock;
-use whatsapp_rust::bench_support::ReceiveHarness;
+use wangcap_bridge::bench_support::ReceiveHarness;
 
 fn main() {
     divan::main();
@@ -121,10 +121,10 @@ fn group_receive_burst(bencher: divan::Bencher) {
 }
 
 /// Multi-lane harness initialized with 256 distinct groups and installed sender keys.
-fn multilane_harness() -> &'static whatsapp_rust::bench_support::MultiLaneReceiveHarness {
-    static HARNESS: OnceLock<whatsapp_rust::bench_support::MultiLaneReceiveHarness> =
+fn multilane_harness() -> &'static wangcap_bridge::bench_support::MultiLaneReceiveHarness {
+    static HARNESS: OnceLock<wangcap_bridge::bench_support::MultiLaneReceiveHarness> =
         OnceLock::new();
-    HARNESS.get_or_init(|| whatsapp_rust::bench_support::MultiLaneReceiveHarness::new(256))
+    HARNESS.get_or_init(|| wangcap_bridge::bench_support::MultiLaneReceiveHarness::new(256))
 }
 
 const LANE_COUNTS: &[usize] = &[1, 32, 256];

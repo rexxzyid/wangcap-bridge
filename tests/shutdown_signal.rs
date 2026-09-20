@@ -4,7 +4,7 @@
 //! SIGKILL after a grace period. The bundled binaries once watched only SIGINT
 //! (`Ctrl+C`), so SIGTERM went unhandled and every `docker stop` timed out and
 //! hard-killed the container (as PID 1 in a `scratch` image the kernel drops an
-//! unhandled SIGTERM entirely). [`whatsapp_rust::shutdown_signal`] must resolve
+//! unhandled SIGTERM entirely). [`wangcap_bridge::shutdown_signal`] must resolve
 //! on SIGTERM as well as SIGINT.
 //!
 //! All scenarios live in one `#[tokio::test]` on purpose: signals are
@@ -67,7 +67,7 @@ async fn shutdown_signal_resolves_on_sigint_and_sigterm() {
 
     // --- The fix: shutdown_signal() resolves on SIGTERM. ---
     {
-        let mut fut = Box::pin(whatsapp_rust::shutdown_signal());
+        let mut fut = Box::pin(wangcap_bridge::shutdown_signal());
         // First poll installs both SIGINT and SIGTERM handlers.
         assert_pending(fut.as_mut(), "shutdown_signal() resolved before any signal");
         raise(libc::SIGTERM);
@@ -78,7 +78,7 @@ async fn shutdown_signal_resolves_on_sigint_and_sigterm() {
 
     // --- The fix keeps the original behaviour: it still resolves on SIGINT. ---
     {
-        let mut fut = Box::pin(whatsapp_rust::shutdown_signal());
+        let mut fut = Box::pin(wangcap_bridge::shutdown_signal());
         assert_pending(fut.as_mut(), "shutdown_signal() resolved before any signal");
         raise(libc::SIGINT);
         tokio::time::timeout(Duration::from_secs(5), fut)

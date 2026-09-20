@@ -243,7 +243,7 @@ SIGNAL_CHAOS_SEED=0x... SIGNAL_CHAOS_SEEDS=1 SIGNAL_CHAOS_STEPS=256 \
   cargo test -p wacore --lib signal_durability_chaos_nightly -- --ignored --nocapture
 
 # Real SQLite database across a SIGKILL and restart on Unix
-cargo test -p whatsapp-rust --test signal_durability_sqlite \
+cargo test -p wangcap-bridge --test signal_durability_sqlite \
   signal_durability_sqlite_process_restart -- --ignored --exact --nocapture
 ```
 

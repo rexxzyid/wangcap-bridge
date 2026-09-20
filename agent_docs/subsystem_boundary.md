@@ -143,7 +143,7 @@ enable it and not `voip`; the compiler names the leak if a draft reaches for one
 `MediaSessionSpec`'s `Debug` redacts the callKey, relay token, auth token and
 integrity key, the same material `CallConfig`'s redaction protects.
 
-In `whatsapp-rust`, `voip-control` re-exports that contract and `voip-engine-wacore`
+In `wangcap-bridge`, `voip-control` re-exports that contract and `voip-engine-wacore`
 adds the resident backend (`voip_control::wacore_backend`) that builds a
 `wacore::voip::CallEngine` from the neutral spec and publishes stats through the
 session. Events need no translation: `MediaEvent` is `CallEvent` under its seam
@@ -181,7 +181,7 @@ putting a lock on the media path, and it is why `media_session.rs` carries no
 additions are the video upgrade token accessors (`VideoUpgradeToken::epoch()`
 and `from_parts`: the epoch distinguishes two upgrade requests in one
 generation) and the `voip-control` feature boundary itself, on `wacore` and
-`whatsapp-rust`. Conversion from the neutral session spec into the resident
+`wangcap-bridge`. Conversion from the neutral session spec into the resident
 `CallConfig` is internal adapter machinery (`engine_bridge`, `#[doc(hidden)]`)
 and is not part of the foreign-backend API: `AudioFormat::from_neutral` /
 `AudioConfig::from_neutral` are `pub(crate)`, their `to_neutral` inverses are

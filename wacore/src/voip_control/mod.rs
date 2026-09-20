@@ -7,7 +7,7 @@
 //! structs defined here. That is what lets a build enable this module and not `voip`: the compiler
 //! names the leak if a draft reaches for an engine type.
 //!
-//! The engine-facing half is intentionally not here. `whatsapp-rust`'s resident backend implements
+//! The engine-facing half is intentionally not here. `wangcap-bridge`'s resident backend implements
 //! [`VoipMediaBackend`] on top of `wacore::voip::CallEngine` and builds the engine from the neutral
 //! spec across this boundary. Events need no translation: the public event type is the engine's own
 //! event type under its seam name. `agent_docs/subsystem_boundary.md` records the byte cut (a

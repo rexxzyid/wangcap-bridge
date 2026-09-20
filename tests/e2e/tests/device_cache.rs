@@ -1,6 +1,6 @@
 use e2e_tests::{TestClient, text_msg};
 use log::info;
-use whatsapp_rust::features::{GroupCreateOptions, GroupParticipantOptions};
+use wangcap_bridge::features::{GroupCreateOptions, GroupParticipantOptions};
 
 /// Verify that group messaging continues to work after a reconnect.
 ///

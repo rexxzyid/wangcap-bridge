@@ -21,10 +21,10 @@ use std::sync::atomic::{AtomicIsize, Ordering};
 use log::info;
 use wacore::net::TransportEvent;
 use wacore::store::InMemoryBackend;
-use whatsapp_rust::bot::Bot;
-use whatsapp_rust::portable_cache::PortableCache;
-use whatsapp_rust::sync_task::MajorSyncTask;
-use whatsapp_rust_ureq_http_client::UreqHttpClient;
+use wangcap_bridge::bot::Bot;
+use wangcap_bridge::portable_cache::PortableCache;
+use wangcap_bridge::sync_task::MajorSyncTask;
+use wangcap_bridge_ureq_http_client::UreqHttpClient;
 
 /// Live bytes handed out by the global allocator and not yet returned.
 ///
@@ -248,11 +248,11 @@ async fn constructed_client_retained_heap() -> anyhow::Result<()> {
         let bot = Bot::builder()
             .with_backend_arc(backend)
             .with_transport_factory(
-                whatsapp_rust_tokio_transport::TokioWebSocketTransportFactory::new()
+                wangcap_bridge_tokio_transport::TokioWebSocketTransportFactory::new()
                     .with_url("wss://127.0.0.1:1/ws/chat"),
             )
             .with_http_client(http)
-            .with_runtime(whatsapp_rust::TokioRuntime)
+            .with_runtime(wangcap_bridge::TokioRuntime)
             .with_version((2, 3000, 0))
             .with_push_name(format!("retention_{i}"))
             .build()

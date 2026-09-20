@@ -1,6 +1,6 @@
 //! Pure helpers for notification stanza parsing.
 //!
-//! The notification handler (`whatsapp-rust/src/handlers/notification.rs`) is
+//! The notification handler (`wangcap-bridge/src/handlers/notification.rs`) is
 //! tightly coupled to `Client` -- every handler dispatches events via
 //! `client.core.event_bus`, accesses caches, spawns tasks, etc.  The actual
 //! notification type parsing is already delegated to typed parsers in sibling

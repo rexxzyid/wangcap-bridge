@@ -1,6 +1,6 @@
-//! SQLite storage backend for whatsapp-rust
+//! SQLite storage backend for wangcap-bridge
 //!
-//! This crate provides a SQLite-based storage implementation for the whatsapp-rust library.
+//! This crate provides a SQLite-based storage implementation for the wangcap-bridge library.
 //! It implements all the required storage traits from wacore::store::traits.
 
 mod pool;

@@ -19,7 +19,7 @@ use std::sync::atomic::{AtomicU64, Ordering};
 
 use e2e_tests::{TestClient, text_msg};
 use tokio::sync::Mutex;
-use whatsapp_rust::Jid;
+use wangcap_bridge::Jid;
 
 // Deterministic allocator for CodSpeed's memory instrument: `realloc` always
 // allocates a fresh block and copies, never growing in place. Whether the system

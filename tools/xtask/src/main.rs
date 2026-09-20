@@ -12,7 +12,7 @@ use std::path::Path;
 #[command(
     name = "cargo xt",
     bin_name = "cargo xt",
-    about = "Rust maintenance tasks for whatsapp-rust"
+    about = "Rust maintenance tasks for wangcap-bridge"
 )]
 struct Args {
     #[command(subcommand)]

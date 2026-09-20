@@ -339,7 +339,7 @@ mod tests {
     use std::str::FromStr;
     use std::sync::Arc;
     use wacore::store::traits::Backend;
-    use whatsapp_rust_tokio_transport::TokioWebSocketTransportFactory;
+    use wangcap_bridge_tokio_transport::TokioWebSocketTransportFactory;
 
     // Mock HTTP client for testing
     #[derive(Debug, Clone)]

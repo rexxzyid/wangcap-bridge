@@ -8,15 +8,15 @@
 
 use std::sync::{Arc, Mutex};
 
-use whatsapp_rust::async_trait;
-use whatsapp_rust::wacore::iq::spec::IqSpec;
-use whatsapp_rust::wacore::request::RequestUtils;
-use whatsapp_rust::wacore_binary::marshal::{marshal, unmarshal_packed_ref};
-use whatsapp_rust::wacore_binary::{NodeContent, NodeContentRef};
-use whatsapp_rust_plugin_wam::iq::SendBufferSpec;
-use whatsapp_rust_plugin_wam::runtime::{PendingEvent, TickKind, WamRuntime, WamWriter};
-use whatsapp_rust_plugin_wam::{InMemoryWamStore, UploadFailure, WamIdentity, WamUploader};
-use whatsapp_rust_wam_catalog::{WamEvent, events, globals};
+use wangcap_bridge::async_trait;
+use wangcap_bridge::wacore::iq::spec::IqSpec;
+use wangcap_bridge::wacore::request::RequestUtils;
+use wangcap_bridge::wacore_binary::marshal::{marshal, unmarshal_packed_ref};
+use wangcap_bridge::wacore_binary::{NodeContent, NodeContentRef};
+use wangcap_bridge_plugin_wam::iq::SendBufferSpec;
+use wangcap_bridge_plugin_wam::runtime::{PendingEvent, TickKind, WamRuntime, WamWriter};
+use wangcap_bridge_plugin_wam::{InMemoryWamStore, UploadFailure, WamIdentity, WamUploader};
+use wangcap_bridge_wam_catalog::{WamEvent, events, globals};
 
 /// Keeps the buffers it is handed instead of sending them.
 #[derive(Default)]

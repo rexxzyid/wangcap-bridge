@@ -82,7 +82,7 @@ different code. Treat a capture bump as a re-derivation, never as an update.
   `oracle abi --index` shows it.
 - **Determinism is the product.** Anything that would vary between runs — clocks,
   randomness, filesystem — must be replaced by something reproducible. A
-  comparison against whatsapp-rust is worthless if the oracle's own output
+  comparison against wangcap-bridge is worthless if the oracle's own output
   drifts.
 - **Unsupported is an error, never a guess.** `call.rs` refuses types it cannot
   marshal, and `wasi.rs` returns `ENOSYS` rather than success for calls it does
@@ -447,7 +447,7 @@ so it works on captures that do not exist yet. The order that has paid off:
    all but one thread outside guest code".
 3. **Drive a full call flow**: `initVoipStack` then
    `handleIncomingSignalingOffer`, and compare the recorded
-   `sendSignalingXMPP_js_sync` payloads against what whatsapp-rust emits. The
+   `sendSignalingXMPP_js_sync` payloads against what wangcap-bridge emits. The
    marshalling this needs is done. What is in the way is not the payload but the
    main-thread proxy queue — see `state.rs`: the engine queues its outbound
    stanzas there and every drain fails while `register_main_thread` is off.
@@ -513,7 +513,7 @@ embind signature:
 | timestamps | on the **guest's** clock (`virtual_unix_time`) — the host clock starts in 2021, so a real timestamp is from the future |
 | the payload | base64 of the encoded stanza **including** the transport flag byte, though the JS glue drops it |
 
-The `uncompressed="1"` answer came from whatsapp-rust, which sets the same
+The `uncompressed="1"` answer came from wangcap-bridge, which sets the same
 attribute when it builds an accept — a case of the two implementations checking
 each other, which is the point of having both.
 
@@ -775,7 +775,7 @@ as a control before believing one that stays silent.
 
 ## Differential testing
 
-`tests/differential.rs` is the template for comparing against whatsapp-rust: the
+`tests/differential.rs` is the template for comparing against wangcap-bridge: the
 oracle supplies ground truth, Rust supplies the candidate, and the test sweeps a
 range of inputs.
 

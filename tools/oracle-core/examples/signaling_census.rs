@@ -22,7 +22,7 @@
 //! **`<offer>` is the only stanza this engine can currently be made to emit**, so
 //! the differential in `offer_differential` cannot be extended to `<accept>`,
 //! `<reject>`, `<terminate>` or `<transport>` yet: there is nothing on the
-//! engine's side to compare whatsapp-rust's builders against.
+//! engine's side to compare wangcap-bridge's builders against.
 //!
 //! The reason is upstream of all three. An incoming offer is parsed —
 //! `!Offer from:6677:0@lid call_id:0102030405060708`, and

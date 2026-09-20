@@ -589,7 +589,7 @@ pub type CommitBarrierHook = Arc<dyn Fn() -> CommitBarrierFuture + Send + Sync +
 /// name the profile instead:
 ///
 /// ```
-/// # use whatsapp_rust_sqlite_storage::SqliteStoreConfig;
+/// # use wangcap_bridge_sqlite_storage::SqliteStoreConfig;
 /// let config = SqliteStoreConfig {
 ///     // A warm cache for a database far larger than the default assumes.
 ///     cache_size_kib: 16 * 1024,
@@ -734,7 +734,7 @@ impl SqliteStoreConfig {
     /// ideally verified — before anything else touches the database:
     ///
     /// ```no_run
-    /// # use whatsapp_rust_sqlite_storage::SqliteStoreConfig;
+    /// # use wangcap_bridge_sqlite_storage::SqliteStoreConfig;
     /// use diesel::prelude::*;
     ///
     /// let config = SqliteStoreConfig::default().with_connection_init(move |conn| {
@@ -1245,7 +1245,7 @@ impl SqliteStore {
     ///   left to count.
     ///
     /// ```no_run
-    /// # use whatsapp_rust_sqlite_storage::SqliteStore;
+    /// # use wangcap_bridge_sqlite_storage::SqliteStore;
     /// # async fn run() -> Result<(), Box<dyn std::error::Error>> {
     /// let device_1 = SqliteStore::new_for_device("whatsapp.db", 1).await?;
     /// // One pool, one connection, two sessions.
@@ -1753,7 +1753,7 @@ impl SqliteStore {
     /// and connection.
     ///
     /// ```no_run
-    /// # use whatsapp_rust_sqlite_storage::SqliteStore;
+    /// # use wangcap_bridge_sqlite_storage::SqliteStore;
     /// # async fn run() -> Result<(), Box<dyn std::error::Error>> {
     /// let store = SqliteStore::new("whatsapp.db").await?;
     /// for account in store.list_devices().await? {
@@ -1815,7 +1815,7 @@ impl SqliteStore {
     /// costs.
     ///
     /// ```no_run
-    /// # use whatsapp_rust_sqlite_storage::SqliteStore;
+    /// # use wangcap_bridge_sqlite_storage::SqliteStore;
     /// # async fn run() -> Result<(), Box<dyn std::error::Error>> {
     /// let store = SqliteStore::new("whatsapp.db").await?;
     /// let (id, account) = store.create_sibling_device().await?;

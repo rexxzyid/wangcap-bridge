@@ -378,7 +378,7 @@ impl SendBranchOutput {
 /// consumers.
 ///
 /// ```
-/// # use whatsapp_rust::send::SendOptions;
+/// # use wangcap_bridge::send::SendOptions;
 /// let options = SendOptions::default().with_message_id("3EB0ABCDEF");
 /// ```
 #[derive(Debug, Clone, Default)]

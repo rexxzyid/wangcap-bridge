@@ -182,9 +182,9 @@ impl Client {
     ///
     /// # Example
     /// ```no_run
-    /// # async fn example(client: &whatsapp_rust::Client) -> anyhow::Result<()> {
+    /// # async fn example(client: &wangcap_bridge::Client) -> anyhow::Result<()> {
     /// use waproto::whatsapp::message::extended_text_message::FontType;
-    /// let recipients = [whatsapp_rust::Jid::pn("15551234567")];
+    /// let recipients = [wangcap_bridge::Jid::pn("15551234567")];
     /// let id = client
     ///     .status()
     ///     .send_text("Hello!", 0xFF1E6E4F, FontType::SYSTEM, &recipients, Default::default())

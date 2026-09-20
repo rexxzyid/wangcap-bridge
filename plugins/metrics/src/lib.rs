@@ -25,8 +25,8 @@ use std::time::Duration;
 use anyhow::{Context, Result, ensure};
 use portable_atomic::{AtomicBool, AtomicU64, Ordering};
 use serde::{Deserialize, Serialize};
-use whatsapp_rust::wacore::types::events::{Event, EventHandler, EventInterest, EventKind};
-use whatsapp_rust::{
+use wangcap_bridge::wacore::types::events::{Event, EventHandler, EventInterest, EventKind};
+use wangcap_bridge::{
     ClientPlugin, PluginCapability, PluginConnectionScope, PluginCoreEventSubscription,
     PluginEventPayloadEncoding, PluginEventSelector, PluginEventTopic, PluginEvents, PluginFuture,
     PluginManifest, PluginTasks,
@@ -213,7 +213,7 @@ impl ClientPlugin for MetricsPlugin {
 
     fn install(
         &self,
-        context: whatsapp_rust::PluginContext,
+        context: wangcap_bridge::PluginContext,
     ) -> PluginFuture<'_, Result<Arc<Self::Api>>> {
         Box::pin(async move {
             ensure!(self.interval != Duration::ZERO, "metrics interval is zero");
@@ -354,13 +354,13 @@ mod tests {
     use std::sync::Arc;
     use std::time::Duration;
 
-    use whatsapp_rust::async_channel::Receiver;
-    use whatsapp_rust::bytes::Bytes;
-    use whatsapp_rust::http::{HttpClient, HttpRequest, HttpResponse};
-    use whatsapp_rust::store::persistence_manager::PersistenceManager;
-    use whatsapp_rust::transport::{Transport, TransportEvent, TransportFactory};
-    use whatsapp_rust::wacore::store::InMemoryBackend;
-    use whatsapp_rust::{
+    use wangcap_bridge::async_channel::Receiver;
+    use wangcap_bridge::bytes::Bytes;
+    use wangcap_bridge::http::{HttpClient, HttpRequest, HttpResponse};
+    use wangcap_bridge::store::persistence_manager::PersistenceManager;
+    use wangcap_bridge::transport::{Transport, TransportEvent, TransportFactory};
+    use wangcap_bridge::wacore::store::InMemoryBackend;
+    use wangcap_bridge::{
         Client, PluginEventEndpointConfig, PluginEventOverflow, PluginEventSubscribeError,
         PluginHealth, TokioRuntime,
     };
@@ -389,7 +389,7 @@ mod tests {
 
     struct TestTransport;
 
-    #[whatsapp_rust::async_trait]
+    #[wangcap_bridge::async_trait]
     impl Transport for TestTransport {
         async fn send(&self, _data: Bytes) -> Result<()> {
             Ok(())
@@ -400,17 +400,17 @@ mod tests {
 
     struct TestTransportFactory;
 
-    #[whatsapp_rust::async_trait]
+    #[wangcap_bridge::async_trait]
     impl TransportFactory for TestTransportFactory {
         async fn create_transport(&self) -> Result<(Arc<dyn Transport>, Receiver<TransportEvent>)> {
-            let (_sender, receiver) = whatsapp_rust::async_channel::bounded(1);
+            let (_sender, receiver) = wangcap_bridge::async_channel::bounded(1);
             Ok((Arc::new(TestTransport), receiver))
         }
     }
 
     struct TestHttpClient;
 
-    #[whatsapp_rust::async_trait]
+    #[wangcap_bridge::async_trait]
     impl HttpClient for TestHttpClient {
         async fn execute(&self, _request: HttpRequest) -> Result<HttpResponse> {
             Ok(HttpResponse {

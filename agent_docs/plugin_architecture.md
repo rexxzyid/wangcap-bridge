@@ -22,7 +22,7 @@ protocol, process isolation, or sandboxing. Those features must be justified by
 a real use case because they add materially stronger compatibility and
 durability contracts.
 
-The host lives in the main `whatsapp-rust` crate, not `wacore`: plugins need
+The host lives in the main `wangcap-bridge` crate, not `wacore`: plugins need
 high-level client operations and lifecycle coordination. It is enabled by the
 opt-in `plugins` feature, which enables `client-lifecycle`. A default build has
 neither plugin/lifecycle fields nor their runtime branches.
@@ -31,7 +31,7 @@ The public feature surface stays intentionally small: `plugins` is the normal
 opt-in and `client-lifecycle` is the advanced low-level seam for hosts that need
 lifecycle integration without the native plugin host. Capabilities and
 individual plugins do not become Cargo features. An external plugin crate can
-enable `whatsapp-rust/plugins` in its own dependency, so Cargo feature unification
+enable `wangcap-bridge/plugins` in its own dependency, so Cargo feature unification
 activates the host for its consumer. The host remains opt-in because LTO is not
 a compatibility guarantee for client layout, reachable branches, dependencies,
 compile time, or final binary size.
@@ -75,7 +75,7 @@ Each plugin chooses an associated API type:
 use std::sync::Arc;
 
 use anyhow::Result;
-use whatsapp_rust::{ClientPlugin, PluginContext, PluginFuture, PluginManifest};
+use wangcap_bridge::{ClientPlugin, PluginContext, PluginFuture, PluginManifest};
 
 struct SearchPlugin;
 

@@ -15,7 +15,7 @@
 //!   lookups.
 //!
 //! ```text
-//! cargo run -p whatsapp-rust-sqlite-storage --release \
+//! cargo run -p wangcap-bridge-sqlite-storage --release \
 //!     --example msg_secret_storage -- [rows] [never_percent] [devices]
 //! ```
 //!

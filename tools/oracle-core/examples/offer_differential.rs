@@ -2,7 +2,7 @@
 //!
 //! Two implementations now produce the same artifact and neither has seen the
 //! other's source: WhatsApp's VoIP engine, running as wasm, emits an `<offer>`
-//! through `sendSignalingXMPP_js_sync`; whatsapp-rust's
+//! through `sendSignalingXMPP_js_sync`; wangcap-bridge's
 //! `wacore::stanza::call::build_offer` builds one from the protocol as it was
 //! reverse-engineered. This puts them side by side.
 //!
@@ -30,7 +30,7 @@
 //!  ==  <net medium="3">
 //!  ==  <capability ver="1"> [7 bytes]
 //!  !=  engine        <enc count="0"> [32 bytes]
-//!      whatsapp-rust <enc count="0" type="pkmsg" v="2"> [32 bytes]
+//!      wangcap-bridge <enc count="0" type="pkmsg" v="2"> [32 bytes]
 //!  ==  <encopt keygen="2">
 //! ```
 //!
@@ -49,7 +49,7 @@
 //!   * outbound is the **symmetric inference**: the engine puts the 32-byte call
 //!     key in `<enc>` unencrypted and without `v`/`type`, and the JS encrypts it
 //!     and stamps the Signal message type — which is exactly what
-//!     whatsapp-rust, having no JS layer, does itself.
+//!     wangcap-bridge, having no JS layer, does itself.
 //!
 //! Stated as an inference because it is one: the outbound half was not traced to
 //! its site in the bundle, only reasoned from the inbound half plus the shape of
@@ -125,7 +125,7 @@ fn engine_offer(bytes: &[u8]) -> Result<(String, Vec<u8>)> {
     bail!("the engine emitted no signaling in {ATTEMPTS} attempts")
 }
 
-/// The same call, as whatsapp-rust would build it.
+/// The same call, as wangcap-bridge would build it.
 ///
 /// Filled to match what the engine was given, so a difference is a difference
 /// in the *shape* rather than in the inputs. `audio_rates` is the pair its own
@@ -236,7 +236,7 @@ fn main() -> Result<()> {
         stanza.len()
     );
 
-    // whatsapp-rust wraps its offer in `<call>`; the engine emits the inner
+    // wangcap-bridge wraps its offer in `<call>`; the engine emits the inner
     // action alone, because the JS layer adds the wrapper. Compare like with
     // like by descending to the `<offer>`.
     let rust_call = rust_offer();
@@ -262,7 +262,7 @@ fn main() -> Result<()> {
             .join(" → ")
     );
     println!(
-        "  whatsapp-rust {}",
+        "  wangcap-bridge {}",
         rust_children
             .iter()
             .map(|c| c.tag.as_str())
@@ -292,7 +292,7 @@ fn main() -> Result<()> {
             Some(rust_child) => {
                 differences += 1;
                 println!("  !=  engine        {}", show(engine_child));
-                println!("      whatsapp-rust {}", show(rust_child));
+                println!("      wangcap-bridge {}", show(rust_child));
             }
             None => {
                 differences += 1;

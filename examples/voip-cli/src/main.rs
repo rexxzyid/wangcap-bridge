@@ -17,7 +17,7 @@
 //!                     With --video an accepted call answers with video media too.
 //! call <jid> [--video]  Place a call; with --video it is a video call from the start.
 //!
-//! cargo run -p whatsapp-rust-voip-cli --release -- loopback
+//! cargo run -p wangcap-bridge-voip-cli --release -- loopback
 //! ```
 //!
 //! During a live call, single-key commands on stdin (terminal only): `v` toggles video
@@ -51,15 +51,15 @@ use wacore::voip::CallEvent;
 use wacore::voip::MlowDecoder;
 #[cfg(all(feature = "voip-opus", feature = "voip-mlow"))]
 use wacore::voip::rtp::RTP_PAYLOAD_TYPE_MLOW_RED;
-use whatsapp_rust::prelude::*;
+use wangcap_bridge::prelude::*;
 #[cfg(feature = "voip-opus")]
-use whatsapp_rust::voip::KeyframeUrgency;
-use whatsapp_rust::voip::audio::{WaOpusDecoder, WaOpusEncoder};
+use wangcap_bridge::voip::KeyframeUrgency;
+use wangcap_bridge::voip::audio::{WaOpusDecoder, WaOpusEncoder};
 #[cfg(feature = "voip-opus")]
-use whatsapp_rust::voip::session::{MediaPipeline, MediaPipelineParams};
+use wangcap_bridge::voip::session::{MediaPipeline, MediaPipelineParams};
 #[cfg(feature = "voip-opus")]
-use whatsapp_rust::voip::{AudioCodec, EncodedAudioFrame};
-use whatsapp_rust::voip::{
+use wangcap_bridge::voip::{AudioCodec, EncodedAudioFrame};
+use wangcap_bridge::voip::{
     AudioFormat, CallHandle, CallTermination, VideoState, VideoUpgradeToken,
 };
 

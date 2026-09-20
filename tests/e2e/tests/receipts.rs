@@ -11,8 +11,8 @@ use log::info;
 use std::time::Duration;
 use wacore::types::events::Event;
 use wacore::types::presence::ReceiptType;
-use whatsapp_rust::features::{GroupCreateOptions, GroupParticipantOptions};
-use whatsapp_rust::{NodeFilter, SendOptions};
+use wangcap_bridge::features::{GroupCreateOptions, GroupParticipantOptions};
+use wangcap_bridge::{NodeFilter, SendOptions};
 
 /// Both clients online: A sends message to B, A should receive a delivery receipt.
 #[tokio::test]

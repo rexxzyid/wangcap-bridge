@@ -1,5 +1,5 @@
 //! The seam's API guard: a foreign media backend implemented importing only
-//! `whatsapp_rust::voip_control`, with no `wacore` in any path.
+//! `wangcap_bridge::voip_control`, with no `wacore` in any path.
 //!
 //! If the contract ever leaks an engine type into a trait signature, a spec field, or a method
 //! another crate must name, this file stops compiling, which is the point. The stub backend below
@@ -11,7 +11,7 @@
 use std::collections::HashMap;
 use std::sync::{Arc, Mutex};
 
-use whatsapp_rust::voip_control::{
+use wangcap_bridge::voip_control::{
     CallDirection, GroupCallUpdate, MediaAudioFormat, MediaAudioIo, MediaAudioSpec,
     MediaCloseReason, MediaCommand, MediaEvent, MediaOpenContext, MediaSessionKey,
     MediaSessionSpec, MediaSetupError, MediaStats, VoipMediaBackend, VoipMediaSession,

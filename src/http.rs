@@ -41,4 +41,4 @@ pub(crate) const HTTP_STATUS_NOT_FOUND: u16 = 404;
 pub(crate) const HTTP_STATUS_GONE: u16 = 410;
 
 #[cfg(feature = "ureq-client")]
-pub use whatsapp_rust_ureq_http_client::UreqHttpClient;
+pub use wangcap_bridge_ureq_http_client::UreqHttpClient;

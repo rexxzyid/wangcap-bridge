@@ -108,7 +108,7 @@ struct RecordingTransport {
 
 #[cfg_attr(target_arch = "wasm32", async_trait::async_trait(?Send))]
 #[cfg_attr(not(target_arch = "wasm32"), async_trait::async_trait)]
-impl whatsapp_rust::transport::Transport for RecordingTransport {
+impl wangcap_bridge::transport::Transport for RecordingTransport {
     async fn send(&self, data: bytes::Bytes) -> Result<(), anyhow::Error> {
         self.writes.lock().expect("writes mutex").push(data);
         Ok(())
@@ -125,8 +125,8 @@ async fn a_provider_that_breaks_the_tag_size_contract_cannot_write_a_frame() {
     let transport = Arc::new(RecordingTransport {
         writes: Mutex::new(Vec::new()),
     });
-    let socket = whatsapp_rust::socket::NoiseSocket::new(
-        Arc::new(whatsapp_rust::runtime_impl::TokioRuntime),
+    let socket = wangcap_bridge::socket::NoiseSocket::new(
+        Arc::new(wangcap_bridge::runtime_impl::TokioRuntime),
         transport.clone(),
         wacore::handshake::NoiseCipher::new(&key).expect("32-byte key"),
         wacore::handshake::NoiseCipher::new(&key).expect("32-byte key"),
@@ -140,7 +140,7 @@ async fn a_provider_that_breaks_the_tag_size_contract_cannot_write_a_frame() {
     assert!(
         matches!(
             err.kind,
-            whatsapp_rust::socket::error::EncryptSendErrorKind::Crypto
+            wangcap_bridge::socket::error::EncryptSendErrorKind::Crypto
         ),
         "the mismatch is a crypto-layer fault, got {err:?}"
     );

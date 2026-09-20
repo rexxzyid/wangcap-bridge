@@ -3704,7 +3704,7 @@ fn client_size_pins_runtime_cache_config_saving() {
         size_of::<Client>(),
         expected,
         "Client layout moved; if a field was added or removed on purpose, \
-         re-measure with `cargo test -p whatsapp-rust --lib \
+         re-measure with `cargo test -p wangcap-bridge --lib \
          client_size_pins_runtime_cache_config_saving` under default, \
          `--features client-lifecycle,plugins`, and the CI feature set, \
          then update the base",

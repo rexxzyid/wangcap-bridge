@@ -7,16 +7,16 @@ use std::path::{Path, PathBuf};
 use std::process::Command;
 use xtask_support::{capture, read_json, run, write, write_json};
 const CRATES: &[&str] = &[
-    "whatsapp_rust",
+    "wangcap_bridge",
     "wacore",
     "wacore_binary",
     "wacore_libsignal",
     "wacore_appstate",
     "wacore_noise",
     "waproto",
-    "whatsapp_rust_sqlite_storage",
-    "whatsapp_rust_tokio_transport",
-    "whatsapp_rust_ureq_http_client",
+    "wangcap_bridge_sqlite_storage",
+    "wangcap_bridge_tokio_transport",
+    "wangcap_bridge_ureq_http_client",
     "std",
 ];
 const GATED: &[(&str, i64)] = &[("bin size (stripped)", 64 * 1024), ("bin .text", 32 * 1024)];
@@ -155,7 +155,7 @@ pub fn measure(root: &Path, out: &Path, skip: bool) -> Result<()> {
             .map(|(_, v)| v)
             .sum(),
     ));
-    for (package, label) in [("wacore", "wacore"), ("whatsapp-rust", "whatsapp-rust lib")] {
+    for (package, label) in [("wacore", "wacore"), ("wangcap-bridge", "wangcap-bridge lib")] {
         let (lines, copies) = llvm_total(&text(
             root,
             "cargo",

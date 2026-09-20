@@ -1,4 +1,4 @@
-# WhatsApp-Rust
+# Wangcap-Bridge
 
 Rust implementation of the WhatsApp protocol: QR pairing, E2E encrypted messaging (1-on-1 + group), media, VoIP, connection management.
 
@@ -8,7 +8,7 @@ Ground truth for protocol behavior is WhatsApp Web itself: query the structured 
 
 - **wacore** — platform-agnostic core: binary protocol, crypto, IQ types, state traits. Also builds for wasm32 and ESP32, so no Tokio here.
 - **waproto** — prost-generated protobufs from `whatsapp.proto`. No feature logic.
-- **whatsapp-rust** — Tokio runtime, SQLite persistence (Diesel), high-level API.
+- **wangcap-bridge** — Tokio runtime, SQLite persistence (Diesel), high-level API.
 - **whatspec-codegen** (`tools/`) — build tooling, never published and outside `default-members`. Regenerates every whatspec-derived file in one pass from a pinned IR commit. Nothing links it.
 
 ## Repository tasks

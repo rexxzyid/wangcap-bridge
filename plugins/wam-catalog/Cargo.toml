@@ -1,5 +1,5 @@
 [package]
-name = "whatsapp-rust-wam-catalog"
+name = "wangcap-bridge-wam-catalog"
 version = "0.1.0"
 edition = "2024"
 rust-version.workspace = true

@@ -1,13 +1,13 @@
 use e2e_tests::TestClient;
 use log::info;
 use std::sync::Arc;
-use whatsapp_rust::TokioRuntime;
-use whatsapp_rust::download::{
+use wangcap_bridge::TokioRuntime;
+use wangcap_bridge::download::{
     DownloadParams, Downloadable, MediaDownloader, MediaRoute, MediaType,
 };
-use whatsapp_rust::upload::UploadResponse;
-use whatsapp_rust::waproto::whatsapp as wa;
-use whatsapp_rust_ureq_http_client::UreqHttpClient;
+use wangcap_bridge::upload::UploadResponse;
+use wangcap_bridge::waproto::whatsapp as wa;
+use wangcap_bridge_ureq_http_client::UreqHttpClient;
 
 struct UploadedMediaParts {
     url: String,

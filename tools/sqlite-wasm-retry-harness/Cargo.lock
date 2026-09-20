@@ -1256,7 +1256,7 @@ dependencies = [
  "js-sys",
  "wasm-bindgen",
  "wasm-bindgen-test",
- "whatsapp-rust-sqlite-storage",
+ "wangcap-bridge-sqlite-storage",
 ]
 
 [[package]]
@@ -1729,7 +1729,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "33ff1c1b360982e93b6d8ea9c04836f71dba0817a16f91e229cf3a51bdd9d987"
 
 [[package]]
-name = "whatsapp-rust-sqlite-storage"
+name = "wangcap-bridge-sqlite-storage"
 version = "0.7.0"
 dependencies = [
  "async-trait",

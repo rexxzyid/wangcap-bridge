@@ -2,7 +2,7 @@
 
 use e2e_tests::{TestClient, text_msg};
 use log::info;
-use whatsapp_rust::waproto::whatsapp as wa;
+use wangcap_bridge::waproto::whatsapp as wa;
 
 #[tokio::test]
 async fn test_send_text_message() -> anyhow::Result<()> {
@@ -85,7 +85,7 @@ async fn test_message_revoke() -> anyhow::Result<()> {
         .revoke_message(
             jid_b,
             msg_id.clone(),
-            whatsapp_rust::send::RevokeType::Sender,
+            wangcap_bridge::send::RevokeType::Sender,
         )
         .await?;
     info!("Client A revoked message {msg_id}");

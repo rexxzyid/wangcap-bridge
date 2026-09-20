@@ -27,7 +27,7 @@ use wacore_binary::marshal;
 const CALLEE: &str = "15550002222";
 const CALL_ID: &str = "probe-call-0001";
 
-/// whatsapp-rust's standard-Opus settings blob.
+/// wangcap-bridge's standard-Opus settings blob.
 const VOIP_SETTINGS: &[u8] =
     br#"{"encode":{"use_mlow_codec_v1":"false"},"options":{"enable_48khz_rtp_clock":"false"}}"#;
 

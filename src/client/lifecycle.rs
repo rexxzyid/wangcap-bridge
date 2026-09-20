@@ -1032,7 +1032,7 @@ impl Client {
     /// ```compile_fail
     /// #![deny(unused_must_use)]
     /// # use std::sync::Arc;
-    /// # use whatsapp_rust::{Client, ConnectError};
+    /// # use wangcap_bridge::{Client, ConnectError};
     /// # async fn before(client: &Arc<Client>) -> Result<(), ConnectError> {
     /// client.connect().await?;
     /// # Ok(())
@@ -1041,7 +1041,7 @@ impl Client {
     ///
     /// ```no_run
     /// # use std::sync::Arc;
-    /// # use whatsapp_rust::{Client, ConnectError};
+    /// # use wangcap_bridge::{Client, ConnectError};
     /// # async fn after(client: &Arc<Client>) -> Result<(), ConnectError> {
     /// client.connect().await?.read_until_disconnected().await;
     /// # Ok(())
@@ -3018,7 +3018,7 @@ mod tests {
     }
 
     /// Where the run loop's own account of itself lands.
-    const RUN_LOOP_LOG: &str = "whatsapp_rust::client::lifecycle";
+    const RUN_LOOP_LOG: &str = "wangcap_bridge::client::lifecycle";
 
     /// A transport factory that parks in `create_transport()` until released,
     /// holding the run loop inside a connect attempt. That is the window a

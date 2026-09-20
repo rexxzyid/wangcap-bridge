@@ -69,7 +69,7 @@ jobs:
           --ignored --nocapture
       - name: Run abrupt SQLite restart test
         run: >-
-          cargo test -p whatsapp-rust --test signal_durability_sqlite
+          cargo test -p wangcap-bridge --test signal_durability_sqlite
           signal_durability_sqlite_process_restart --
           --ignored --exact --nocapture
       - name: Preserve failed SQLite fixture

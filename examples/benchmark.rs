@@ -9,11 +9,11 @@ use wacore::net::{HttpClient, HttpRequest};
 use wacore::proto_helpers::MessageExt;
 use wacore::store::InMemoryBackend;
 use wacore::types::events::{Event, EventKind};
-use whatsapp_rust::TokioRuntime;
-use whatsapp_rust::bot::{Bot, MessageContext};
-use whatsapp_rust::handshake::NoiseCertPolicy;
-use whatsapp_rust_tokio_transport::TokioWebSocketTransportFactory;
-use whatsapp_rust_ureq_http_client::UreqHttpClient;
+use wangcap_bridge::TokioRuntime;
+use wangcap_bridge::bot::{Bot, MessageContext};
+use wangcap_bridge::handshake::NoiseCertPolicy;
+use wangcap_bridge_tokio_transport::TokioWebSocketTransportFactory;
+use wangcap_bridge_ureq_http_client::UreqHttpClient;
 
 /// Derive the mock-server admin scan-qr endpoint from a `ws[s]://host:port/...`
 /// WebSocket URL. Changes only the scheme (`ws`→`http` / `wss`→`https`) and the

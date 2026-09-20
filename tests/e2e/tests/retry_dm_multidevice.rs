@@ -5,7 +5,7 @@ use log::info;
 use wacore::types::events::Event;
 use wacore_binary::JidExt as _;
 use wacore_binary::node::Node;
-use whatsapp_rust::{NodeFilter, SendOptions};
+use wangcap_bridge::{NodeFilter, SendOptions};
 
 /// A non-empty `<participants>` on a DM retry would mean we regressed to
 /// the fanout shape (server rejects with 479 SmaxInvalid).

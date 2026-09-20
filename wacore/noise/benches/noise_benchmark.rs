@@ -6,7 +6,7 @@
 //! a read into the accumulation buffer while `feed_owned` adopts a
 //! uniquely-owned `Bytes` instead. 28 KB is the AB-props response that aborted
 //! the ESP32-C3 with two full-size copies alive (`docs/esp32c3.md` in
-//! whatsapp-rust-esp32); the delta between the two rows is what that adoption
+//! wangcap-bridge-esp32); the delta between the two rows is what that adoption
 //! saves per large frame.
 
 use bytes::Bytes;

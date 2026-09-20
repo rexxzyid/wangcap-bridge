@@ -4,7 +4,7 @@
 //! PR #1279 pinned it flat in group size. Everything *around* it — the group
 //! metadata `Arc`, the per-group device memo, the sender-key device map, the
 //! SKDM target filter, the signal-cache flush, marshalling and the noise
-//! socket — lives in the `whatsapp-rust` crate, which had no benchmarks. An
+//! socket — lives in the `wangcap-bridge` crate, which had no benchmarks. An
 //! external whole-client profile attributed ~670 instructions per additional
 //! member per message to that remainder; this target is what makes the claim
 //! testable in-process.
@@ -32,7 +32,7 @@
 use divan::black_box;
 use std::collections::HashMap;
 use std::sync::{Mutex, OnceLock};
-use whatsapp_rust::bench_support::{GROUP_SIZES, GroupSendHarness};
+use wangcap_bridge::bench_support::{GROUP_SIZES, GroupSendHarness};
 
 fn main() {
     divan::main();

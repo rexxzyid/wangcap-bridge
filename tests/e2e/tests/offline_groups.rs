@@ -2,7 +2,7 @@ use e2e_tests::{TestClient, text_msg};
 use log::info;
 use std::collections::HashSet;
 use wacore::types::events::Event;
-use whatsapp_rust::features::{GroupCreateOptions, GroupParticipantOptions};
+use wangcap_bridge::features::{GroupCreateOptions, GroupParticipantOptions};
 
 #[tokio::test]
 async fn test_offline_group_notification() -> anyhow::Result<()> {

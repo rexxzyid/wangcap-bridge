@@ -37,7 +37,7 @@
 use divan::black_box;
 use std::sync::Arc;
 use std::sync::OnceLock;
-use whatsapp_rust::bench_support::ReceiveHarness;
+use wangcap_bridge::bench_support::ReceiveHarness;
 
 fn main() {
     divan::main();

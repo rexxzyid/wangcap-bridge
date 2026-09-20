@@ -780,7 +780,7 @@ impl core::fmt::Display for PairCodeRejection {
 
 /// Errors raised by wacore-side pair-code validation, key derivation, and
 /// protocol-bundle building. The high-level crate wraps this in
-/// `whatsapp_rust::pair_code::PairError` and adds an IQ-failure variant for the
+/// `wangcap_bridge::pair_code::PairError` and adds an IQ-failure variant for the
 /// transport layer.
 #[derive(Debug, thiserror::Error)]
 #[non_exhaustive]

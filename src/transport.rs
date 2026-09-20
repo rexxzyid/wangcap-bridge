@@ -5,7 +5,7 @@ pub use wacore::net::{
 };
 
 #[cfg(feature = "tokio-transport")]
-pub use whatsapp_rust_tokio_transport::{
+pub use wangcap_bridge_tokio_transport::{
     Connector, TokioWebSocketTransportFactory, default_tls_connector, from_websocket,
 };
 

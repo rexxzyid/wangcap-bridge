@@ -1,6 +1,6 @@
 //! The consuming conversion from the neutral spec to the engine config.
 //!
-//! This lives here, not in the `whatsapp-rust` backend, because it splits crate-local types on
+//! This lives here, not in the `wangcap-bridge` backend, because it splits crate-local types on
 //! both sides. The module is gated on `voip`: the neutral contract must still compile with the
 //! engine off, and this conversion is the one place the two meet.
 //!

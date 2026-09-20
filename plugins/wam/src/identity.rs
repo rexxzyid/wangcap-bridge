@@ -13,9 +13,9 @@
 //! from [`ClientProfile`], the same struct the payload is built from, and the
 //! ones an embedder may add are documented against that requirement.
 
-use whatsapp_rust::ClientProfile;
-use whatsapp_rust::waproto::whatsapp as wa;
-use whatsapp_rust_wam_catalog::{Channel, GlobalDef, GlobalValue, enums, globals};
+use wangcap_bridge::ClientProfile;
+use wangcap_bridge::waproto::whatsapp as wa;
+use wangcap_bridge_wam_catalog::{Channel, GlobalDef, GlobalValue, enums, globals};
 
 /// One global this client will write, with the value it will write.
 ///
@@ -96,7 +96,7 @@ impl WamIdentity {
     pub fn web() -> Self {
         Self::from_profile(
             &ClientProfile::web(),
-            whatsapp_rust::wacore::version::WA_WEB_VERSION_STR,
+            wangcap_bridge::wacore::version::WA_WEB_VERSION_STR,
         )
     }
 

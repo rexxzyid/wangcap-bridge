@@ -13,7 +13,7 @@ the test-only path.
 
 ```toml
 [target.'cfg(not(target_arch = "wasm32"))'.dev-dependencies]
-whatsapp-rust = { workspace = true, features = ["test-support"] }
+wangcap-bridge = { workspace = true, features = ["test-support"] }
 ```
 
 The workspace dependency must already point at a revision containing this
@@ -22,7 +22,7 @@ do not introduce a second copy just for the fixture.
 
 ## Public API
 
-`whatsapp_rust::test_support::CallFixture` is the native fixture.
+`wangcap_bridge::test_support::CallFixture` is the native fixture.
 
 - `new().await` completes production Noise XX, login and empty offline delivery.
   It waits on the production readiness notification. There are no readiness
@@ -70,7 +70,7 @@ accept advertisement, hold `client().acquire_raw_node_forwarding()` and inspect
 
 ```rust
 use std::sync::Arc;
-use whatsapp_rust::test_support::CallFixture;
+use wangcap_bridge::test_support::CallFixture;
 use wacore_binary::builder::NodeBuilder;
 
 # async fn example() -> anyhow::Result<()> {
@@ -131,7 +131,7 @@ The immutable getter does not change the handler's acceptance policy.
 
 ### Ordered peer video events
 
-The production `whatsapp_rust::voip::CallEvent::PeerVideoStateChanged` variant
+The production `wangcap_bridge::voip::CallEvent::PeerVideoStateChanged` variant
 is available with `voip-runtime`, including on wasm. It does not require the
 native `test-support` feature. Its fields are:
 
@@ -210,13 +210,13 @@ behaviors; they do not declare them secure or add filtering to hide them.
 ## Verification
 
 ```sh
-cargo test -p whatsapp-rust --no-default-features --features test-support --test voip_call_fixture
-cargo clippy -p whatsapp-rust --no-default-features --features test-support --test voip_call_fixture -- -D warnings
-cargo check -p whatsapp-rust --no-default-features --features test-support --lib
-cargo check -p whatsapp-rust --no-default-features --lib
-cargo test -p whatsapp-rust --features voip-mlow,test-support --lib voip::facade::tests
-cargo test -p whatsapp-rust --features test-support --lib test_support::call::tests
-cargo test -p whatsapp-rust --test native_test_support_cfg -- --ignored
+cargo test -p wangcap-bridge --no-default-features --features test-support --test voip_call_fixture
+cargo clippy -p wangcap-bridge --no-default-features --features test-support --test voip_call_fixture -- -D warnings
+cargo check -p wangcap-bridge --no-default-features --features test-support --lib
+cargo check -p wangcap-bridge --no-default-features --lib
+cargo test -p wangcap-bridge --features voip-mlow,test-support --lib voip::facade::tests
+cargo test -p wangcap-bridge --features test-support --lib test_support::call::tests
+cargo test -p wangcap-bridge --test native_test_support_cfg -- --ignored
 cargo fmt --all -- --check
 ```
 

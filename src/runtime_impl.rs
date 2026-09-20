@@ -47,13 +47,13 @@ mod tokio_impl {
     ///
     /// ```toml
     /// [dependencies]
-    /// whatsapp-rust = { version = "0.7", default-features = false, features = ["tokio-runtime"] }
+    /// wangcap-bridge = { version = "0.7", default-features = false, features = ["tokio-runtime"] }
     /// tokio = { version = "1", features = ["rt", "time"] }
     /// ```
     ///
     /// ```rust
     /// use std::time::Duration;
-    /// use whatsapp_rust::{Runtime, TokioRuntime};
+    /// use wangcap_bridge::{Runtime, TokioRuntime};
     ///
     /// fn main() -> Result<(), Box<dyn std::error::Error>> {
     ///     let executor = tokio::runtime::Builder::new_current_thread()
@@ -62,7 +62,7 @@ mod tokio_impl {
     ///     let runtime = TokioRuntime;
     ///     executor.block_on(async {
     ///         runtime.sleep(Duration::from_millis(1)).await;
-    ///         let answer = whatsapp_rust::wacore::runtime::blocking(&runtime, || 6 * 7).await;
+    ///         let answer = wangcap_bridge::wacore::runtime::blocking(&runtime, || 6 * 7).await;
     ///         assert_eq!(answer, 42);
     ///     });
     ///     Ok(())

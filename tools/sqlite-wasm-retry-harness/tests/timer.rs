@@ -7,7 +7,7 @@ use std::rc::Rc;
 use std::task::{Context, Poll, Waker};
 use wasm_bindgen::{JsCast, JsValue, closure::Closure};
 use wasm_bindgen_test::wasm_bindgen_test;
-use whatsapp_rust_sqlite_storage::test_retry_backoff;
+use wangcap_bridge_sqlite_storage::test_retry_backoff;
 
 #[wasm_bindgen_test]
 async fn retry_backoff_installs_and_cancels_the_real_timer() {

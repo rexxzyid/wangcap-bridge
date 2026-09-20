@@ -1,7 +1,7 @@
 use e2e_tests::TestClient;
 use log::info;
-use whatsapp_rust::GroupType;
-use whatsapp_rust::features::{CreateCommunityOptions, GroupCreateOptions, group_type};
+use wangcap_bridge::GroupType;
+use wangcap_bridge::features::{CreateCommunityOptions, GroupCreateOptions, group_type};
 
 #[tokio::test]
 async fn test_community_create() -> anyhow::Result<()> {

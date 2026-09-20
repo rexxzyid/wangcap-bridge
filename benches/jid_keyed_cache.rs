@@ -28,7 +28,7 @@ use std::sync::atomic::{AtomicUsize, Ordering};
 use std::sync::{Arc, OnceLock};
 use std::task::{Context, Poll, Waker};
 use wacore_binary::jid::Jid;
-use whatsapp_rust::cache::Cache;
+use wangcap_bridge::cache::Cache;
 
 fn main() {
     divan::main();

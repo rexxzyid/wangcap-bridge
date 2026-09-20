@@ -1,6 +1,6 @@
 //! Feeding the VoIP engine a real signaling stanza.
 //!
-//! The stanza is built with whatsapp-rust's own binary codec and handed to
+//! The stanza is built with wangcap-bridge's own binary codec and handed to
 //! WhatsApp Web's engine. The engine's internal log is what makes this a test
 //! rather than a smoke check: it names the argument it read, the parser error it
 //! hit, and the subsystem that failed, so the assertions are about behaviour
@@ -316,7 +316,7 @@ fn jid(user: &str) -> Jid {
 ///   JID_PAIR token and the engine reads them back that way.
 /// - `<voip_settings uncompressed="1">`. Without the attribute the engine reads
 ///   the blob as compressed and rejects the whole offer with
-///   `unexpected compressed voip params`. whatsapp-rust sets the same attribute
+///   `unexpected compressed voip params`. wangcap-bridge sets the same attribute
 ///   when it builds an accept, which is where the answer came from.
 /// - `t` on the guest's clock, via `virtual_unix_time`. The host clock is
 ///   virtual and starts in 2021, so a real timestamp is in the future.
@@ -348,11 +348,11 @@ fn offer_stanza(now: u64) -> Node {
         .build()
 }
 
-/// The settings blob, in whatsapp-rust's standard-Opus form.
+/// The settings blob, in wangcap-bridge's standard-Opus form.
 /// Adding `caller_timeout`/`callee_timeout` under `options` was tried, on the
 /// theory that an empty ring window would explain the immediate miss —
 /// `getVoipParam("options.caller_timeout")` does read back empty. It changes
-/// nothing: the offer still ends `term_reason 27`. Kept in whatsapp-rust's
+/// nothing: the offer still ends `term_reason 27`. Kept in wangcap-bridge's
 /// standard form.
 const VOIP_SETTINGS: &[u8] =
     br#"{"encode":{"use_mlow_codec_v1":"false"},"options":{"enable_48khz_rtp_clock":"false"}}"#;
@@ -1536,7 +1536,7 @@ fn engine_with_identity() -> Option<Runtime> {
 /// calls against an older module and passes `…@s.whatsapp.net` as the peer, so
 /// anyone porting that recipe here will hit this and have no idea why. The
 /// engine says it plainly — `peer_participant_jids must be LID, enforce LID for
-/// all calls` — and that sentence is the ground truth whatsapp-rust has to
+/// all calls` — and that sentence is the ground truth wangcap-bridge has to
 /// match.
 #[test]
 #[ignore = "real threads; see the module docs"]

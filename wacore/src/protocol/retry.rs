@@ -3,7 +3,7 @@
 //! Constants and utility functions for parsing retry receipts. These have no
 //! runtime dependencies (`self`, `Client`, spawn, sleep). All orchestration
 //! (session management, message resend, cache interaction) remains in
-//! `whatsapp-rust/src/retry.rs`.
+//! `wangcap-bridge/src/retry.rs`.
 
 use crate::iq::prekeys::{OneTimePreKeyNode, SignedPreKeyNode};
 use crate::libsignal::protocol::PublicKey;

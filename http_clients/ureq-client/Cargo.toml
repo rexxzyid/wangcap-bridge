@@ -1,12 +1,12 @@
 [package]
-name = "whatsapp-rust-ureq-http-client"
+name = "wangcap-bridge-ureq-http-client"
 version = "0.7.0"
 edition = "2024"
 rust-version.workspace = true
 authors = ["João Lucas <jlucaso@hotmail.com>"]
 license = "MIT"
-repository = "https://github.com/jlucaso1/whatsapp-rust"
-description = "Ureq-based HTTP client implementation for whatsapp-rust"
+repository = "https://github.com/rexxzyid/wangcap-bridge"
+description = "Ureq-based HTTP client implementation for wangcap-bridge"
 
 [features]
 default = []

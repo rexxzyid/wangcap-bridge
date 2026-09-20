@@ -29,7 +29,7 @@ use std::time::Duration;
 
 use log::{error, info};
 use wacore::stats::AllocMeter;
-use whatsapp_rust::prelude::*;
+use wangcap_bridge::prelude::*;
 
 /// A global allocator that forwards every (de)allocation size to whichever
 /// `AllocMeter` is active on the current thread. `AllocMeter::on_alloc` is

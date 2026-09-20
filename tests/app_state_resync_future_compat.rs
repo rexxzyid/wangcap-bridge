@@ -4,7 +4,7 @@
 //! boundary without inheriting the library crate's recursion limit.
 
 use std::future::Future;
-use whatsapp_rust::{AppStateResyncMode, Client, WAPatchName};
+use wangcap_bridge::{AppStateResyncMode, Client, WAPatchName};
 
 #[cfg_attr(feature = "tracing", tracing::instrument(skip_all))]
 async fn traced_consumer(client: &Client) {

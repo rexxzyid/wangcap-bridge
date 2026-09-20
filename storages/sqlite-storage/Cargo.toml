@@ -1,12 +1,12 @@
 [package]
-name = "whatsapp-rust-sqlite-storage"
+name = "wangcap-bridge-sqlite-storage"
 version = "0.7.0"
 edition = "2024"
 rust-version.workspace = true
 authors = ["João Lucas <jlucaso@hotmail.com>"]
 license = "MIT"
-repository = "https://github.com/jlucaso1/whatsapp-rust"
-description = "SQLite storage backend for whatsapp-rust"
+repository = "https://github.com/rexxzyid/wangcap-bridge"
+description = "SQLite storage backend for wangcap-bridge"
 
 # `libsqlite3-sys` is pulled only to activate its `bundled` feature (compile
 # SQLite in-tree); there is no direct `use`, so static analysers flag it.

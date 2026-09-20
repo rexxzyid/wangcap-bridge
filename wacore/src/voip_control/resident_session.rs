@@ -627,7 +627,7 @@ impl VoipMediaSession for ResidentMediaSession {
 /// still have somewhere to land, but it carries no engine: [`open`](VoipMediaBackend::open) returns
 /// the typed [`MediaSetupError::NoBackend`]. That is the honest answer for a `voip-control`-only
 /// build -- the call flow compiles, and starting media without an injected backend fails with a
-/// clear error rather than a panic or a silent no-op. A `whatsapp-rust` client installs
+/// clear error rather than a panic or a silent no-op. A `wangcap-bridge` client installs
 /// [`WacoreVoipMediaBackend`](crate::voip_control) instead.
 #[derive(Default)]
 pub struct NoMediaBackend;
@@ -648,7 +648,7 @@ impl VoipMediaBackend for NoMediaBackend {
         _spec: MediaSessionSpec,
         _ctx: crate::voip_control::MediaOpenContext,
     ) -> Result<(), MediaSetupError> {
-        // The registry's fallback carries no engine, so it cannot start media. `whatsapp-rust`
+        // The registry's fallback carries no engine, so it cannot start media. `wangcap-bridge`
         // injects `WacoreVoipMediaBackend`, which owns the runtime and transport and does the real
         // open; reaching this one on a live call is the typed `NoBackend` refusal the caller sees.
         Err(MediaSetupError::NoBackend)

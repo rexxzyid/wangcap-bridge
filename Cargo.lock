@@ -387,7 +387,7 @@ dependencies = [
  "e2e-tests",
  "env_logger",
  "tokio",
- "whatsapp-rust",
+ "wangcap-bridge",
 ]
 
 [[package]]
@@ -1621,9 +1621,9 @@ dependencies = [
  "uuid",
  "wacore",
  "wacore-binary",
- "whatsapp-rust",
- "whatsapp-rust-tokio-transport",
- "whatsapp-rust-ureq-http-client",
+ "wangcap-bridge",
+ "wangcap-bridge-tokio-transport",
+ "wangcap-bridge-ureq-http-client",
 ]
 
 [[package]]
@@ -5656,7 +5656,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "whatsapp-rust"
+name = "wangcap-bridge"
 version = "0.7.0"
 dependencies = [
  "aes 0.9.3",
@@ -5709,14 +5709,14 @@ dependencies = [
  "wacore-binary",
  "wacore-noise",
  "waproto",
- "whatsapp-rust-sqlite-storage",
- "whatsapp-rust-tokio-transport",
- "whatsapp-rust-ureq-http-client",
+ "wangcap-bridge-sqlite-storage",
+ "wangcap-bridge-tokio-transport",
+ "wangcap-bridge-ureq-http-client",
  "zeroize",
 ]
 
 [[package]]
-name = "whatsapp-rust-plugin-metrics"
+name = "wangcap-bridge-plugin-metrics"
 version = "0.1.0"
 dependencies = [
  "anyhow",
@@ -5725,11 +5725,11 @@ dependencies = [
  "serde",
  "serde_json",
  "tokio",
- "whatsapp-rust",
+ "wangcap-bridge",
 ]
 
 [[package]]
-name = "whatsapp-rust-plugin-wam"
+name = "wangcap-bridge-plugin-wam"
 version = "0.1.0"
 dependencies = [
  "anyhow",
@@ -5738,12 +5738,12 @@ dependencies = [
  "rand 0.10.2",
  "thiserror 2.0.20",
  "tokio",
- "whatsapp-rust",
- "whatsapp-rust-wam-catalog",
+ "wangcap-bridge",
+ "wangcap-bridge-wam-catalog",
 ]
 
 [[package]]
-name = "whatsapp-rust-sqlite-storage"
+name = "wangcap-bridge-sqlite-storage"
 version = "0.7.0"
 dependencies = [
  "async-trait",
@@ -5768,7 +5768,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "whatsapp-rust-tokio-transport"
+name = "wangcap-bridge-tokio-transport"
 version = "0.7.0"
 dependencies = [
  "anyhow",
@@ -5788,7 +5788,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "whatsapp-rust-ureq-http-client"
+name = "wangcap-bridge-ureq-http-client"
 version = "0.7.0"
 dependencies = [
  "anyhow",
@@ -5799,7 +5799,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "whatsapp-rust-voip-cli"
+name = "wangcap-bridge-voip-cli"
 version = "0.7.0"
 dependencies = [
  "anyhow",
@@ -5814,11 +5814,11 @@ dependencies = [
  "ringbuf",
  "tokio",
  "wacore",
- "whatsapp-rust",
+ "wangcap-bridge",
 ]
 
 [[package]]
-name = "whatsapp-rust-wam-catalog"
+name = "wangcap-bridge-wam-catalog"
 version = "0.1.0"
 dependencies = [
  "thiserror 2.0.20",

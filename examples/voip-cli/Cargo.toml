@@ -2,9 +2,9 @@
 # audio stack (cpal -> alsa-sys, needs ALSA/pkg-config on Linux) never enters the
 # dependency closure of `cargo build --example demo`, which the Docker image runs.
 # A workspace member but not a default-member: plain `cargo build` skips it; build
-# it explicitly with `cargo run -p whatsapp-rust-voip-cli`.
+# it explicitly with `cargo run -p wangcap-bridge-voip-cli`.
 [package]
-name = "whatsapp-rust-voip-cli"
+name = "wangcap-bridge-voip-cli"
 version = "0.7.0"
 edition = "2024"
 rust-version.workspace = true
@@ -13,8 +13,8 @@ publish = false
 
 [features]
 default = ["voip-mlow", "voip-opus"]
-voip-mlow = ["whatsapp-rust/voip-mlow"]
-voip-opus = ["whatsapp-rust/voip-encoded", "whatsapp-rust/voip-libopus"]
+voip-mlow = ["wangcap-bridge/voip-mlow"]
+voip-opus = ["wangcap-bridge/voip-encoded", "wangcap-bridge/voip-libopus"]
 
 [dependencies]
 anyhow = { workspace = true }
@@ -29,7 +29,7 @@ rand = { workspace = true }
 ringbuf = "0.5"
 tokio = { workspace = true, features = ["full"] }
 wacore = { path = "../../wacore", features = ["voip"] }
-whatsapp-rust = { path = "../..", features = [
+wangcap-bridge = { path = "../..", features = [
     "sqlite-storage",
     "tokio-transport",
     "ureq-client",

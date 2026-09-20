@@ -1,12 +1,12 @@
 
 [package]
-name = "wangcap-bridgee"
+name = "wangcap-bridge"
 version = "1.0.0"
 edition = "2024"
 rust-version.workspace = true
 authors = ["RexxHayanasi"]
 license = "MIT"
-repository = "https://github.com/jlucaso1/whatsapp-rust"
+repository = "https://github.com/rexxzyid/wangcap-bridge"
 readme = "README.md"
 description = "Rust client for WhatsApp Web"
 # Only the explicit [[bench]] targets below are built; never auto-discover
@@ -202,7 +202,7 @@ tracing-pii = ["wacore/tracing-pii", "wacore-binary/tracing-pii"]
 bench-harness = ["tokio-runtime", "tokio/rt-multi-thread"]
 # Native integration fixtures only. Never enable in a shipping dependency.
 test-support = ["voip-runtime", "tokio-runtime", "dep:wacore-noise", "wacore-noise/test-util"]
-danger-skip-tls-verify = ["whatsapp-rust-tokio-transport?/danger-skip-tls-verify"]
+danger-skip-tls-verify = ["wangcap-bridge-tokio-transport?/danger-skip-tls-verify"]
 default = [
     "sqlite-storage",
     "sqlite-storage-bundled",
@@ -212,12 +212,12 @@ default = [
     "tokio-native",
     "signal",
 ]
-ureq-client = ["dep:whatsapp-rust-ureq-http-client"]
-tokio-transport = ["dep:whatsapp-rust-tokio-transport"]
+ureq-client = ["dep:wangcap-bridge-ureq-http-client"]
+tokio-transport = ["dep:wangcap-bridge-tokio-transport"]
 tokio-runtime = ["dep:tokio"]
 signal = ["tokio-runtime", "tokio/signal"]
-sqlite-storage = ["whatsapp-rust-sqlite-storage"]
-sqlite-storage-bundled = ["sqlite-storage", "whatsapp-rust-sqlite-storage/bundled-sqlite"]
+sqlite-storage = ["wangcap-bridge-sqlite-storage"]
+sqlite-storage-bundled = ["sqlite-storage", "wangcap-bridge-sqlite-storage/bundled-sqlite"]
 tokio-native = ["tokio-runtime", "tokio/rt-multi-thread"]
 # The portable half of the VoIP runtime: call signaling, the facade, and the orchestration around
 # `wacore`'s sans-IO engine. It owns no socket and names no clock, so it builds wherever `wacore`
@@ -229,7 +229,7 @@ tokio-native = ["tokio-runtime", "tokio/rt-multi-thread"]
 # native build gets `tokio-runtime` back through `voip-relay-native`, which genuinely needs it.
 voip-runtime = ["voip-control", "voip-engine-wacore"]
 # The neutral control-plane media contract, re-exported from `wacore::voip_control` as
-# `whatsapp_rust::voip_control`. Its API names no `wacore::voip` type, so this feature compiles with
+# `wangcap_bridge::voip_control`. Its API names no `wacore::voip` type, so this feature compiles with
 # the engine off. It is the boundary a media backend implements; it carries no backend itself.
 #
 # This feature carries the call flow, not only the contract: `src/voip` (the facade, the registry,
@@ -315,13 +315,13 @@ wacore-binary = { workspace = true }
 wacore-noise = { path = "./wacore/noise", version = "0.7.0", optional = true }
 waproto = { workspace = true }
 zeroize = { workspace = true }
-whatsapp-rust-sqlite-storage = { path = "./storages/sqlite-storage", version = "0.7.0", optional = true, default-features = false }
-whatsapp-rust-tokio-transport = { path = "./transports/tokio-transport", version = "0.7.0", optional = true }
-whatsapp-rust-ureq-http-client = { path = "./http_clients/ureq-client", version = "0.7.0", optional = true }
+wangcap-bridge-sqlite-storage = { path = "./storages/sqlite-storage", version = "0.7.0", optional = true, default-features = false }
+wangcap-bridge-tokio-transport = { path = "./transports/tokio-transport", version = "0.7.0", optional = true }
+wangcap-bridge-ureq-http-client = { path = "./http_clients/ureq-client", version = "0.7.0", optional = true }
 
 # wasm32-unknown-unknown has no default getrandom backend, so make the browser
 # one available (the only valid choice there) to build the crate standalone:
-# CI wasm guard + downstream consumers like whatsapp-rust-bridge. Gated to the
+# CI wasm guard + downstream consumers like wangcap-bridge-bridge. Gated to the
 # unknown-unknown triple per getrandom's guidance so wasm32-wasi/emscripten keep
 # their own backends and don't pull wasm-bindgen/js-sys. Backend is still
 # selected via `--cfg getrandom_backend="wasm_js"` in RUSTFLAGS; no native effect.
@@ -336,7 +336,7 @@ aes = { workspace = true }
 cbc = { workspace = true, features = ["block-padding"] }
 # The startup-retention test ages a pending-inbound row directly, since the
 # backend trait exposes no UPDATE. Dev-only; the crate already links diesel
-# through `whatsapp-rust-sqlite-storage` in production.
+# through `wangcap-bridge-sqlite-storage` in production.
 diesel = { workspace = true }
 divan = { workspace = true }
 env_logger = { workspace = true }
@@ -392,7 +392,7 @@ required-features = ["metrics"]
 
 # Client-level group-send sweep. `required-features` keeps the fixture out of
 # an ordinary `cargo bench`/`cargo build --all-targets`, which would otherwise
-# fail to find `whatsapp_rust::bench_support`.
+# fail to find `wangcap_bridge::bench_support`.
 [[bench]]
 name = "client_group_send"
 harness = false
@@ -468,13 +468,13 @@ opt-level = "z"
 opt-level = "z"
 [profile.release.package.r2d2]
 opt-level = "z"
-[profile.release.package.whatsapp-rust-sqlite-storage]
+[profile.release.package.wangcap-bridge-sqlite-storage]
 opt-level = "z"
 [profile.release.package.ureq]
 opt-level = "z"
 [profile.release.package.ureq-proto]
 opt-level = "z"
-[profile.release.package.whatsapp-rust-ureq-http-client]
+[profile.release.package.wangcap-bridge-ureq-http-client]
 opt-level = "z"
 [profile.release.package.rustls-webpki]
 opt-level = "z"
@@ -488,7 +488,7 @@ opt-level = "z"
 opt-level = "s"
 [profile.release.package.tokio-websockets]
 opt-level = "s"
-[profile.release.package.whatsapp-rust-tokio-transport]
+[profile.release.package.wangcap-bridge-tokio-transport]
 opt-level = "s"
 [profile.release.package.wacore-appstate]
 opt-level = "s"

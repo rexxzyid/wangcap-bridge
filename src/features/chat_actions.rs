@@ -924,9 +924,9 @@ impl Client {
     ///
     /// ```no_run
     /// # #![recursion_limit = "512"]
-    /// # async fn ex(client: &whatsapp_rust::Client) -> anyhow::Result<()> {
-    /// use whatsapp_rust::schemas;
-    /// use whatsapp_rust::waproto::whatsapp as wa;
+    /// # async fn ex(client: &wangcap_bridge::Client) -> anyhow::Result<()> {
+    /// use wangcap_bridge::schemas;
+    /// use wangcap_bridge::waproto::whatsapp as wa;
     /// let value = wa::SyncActionValue {
     ///     clear_chat_action: Some(Default::default()).into(),
     ///     timestamp: Some(1_700_000_000_000), // a real epoch-ms timestamp

@@ -2,8 +2,8 @@
 //!
 //! Constants and predicate functions with no runtime dependencies
 //! (`self`, `Client`, spawn, sleep). The keepalive loop orchestration
-//! and IQ error classification remain in `whatsapp-rust/src/keepalive.rs`
-//! because `IqError` depends on `SocketError` which lives in whatsapp-rust.
+//! and IQ error classification remain in `wangcap-bridge/src/keepalive.rs`
+//! because `IqError` depends on `SocketError` which lives in wangcap-bridge.
 
 use crate::time::Instant;
 use std::time::Duration;

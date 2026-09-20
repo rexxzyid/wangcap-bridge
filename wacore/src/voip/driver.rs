@@ -675,7 +675,7 @@ async fn run_call_with_clock_and_wallclock(
     // freezes the inbound jitter buffer or the playout tick. Awaiting `transport.send()` inline coupled
     // the two: a slow send parked the loop, inbound packets queued then arrived in a burst, and the
     // playout tick fired late -- so the jitter buffer overflowed then underran (audible glitching,
-    // worst whatsapp-rust<->whatsapp-rust where both ends stalled; the official client decouples them).
+    // worst wangcap-bridge<->wangcap-bridge where both ends stalled; the official client decouples them).
     // Video is queued per access unit so overload never leaves half an IDR on the wire.
     let mut send_queue: VecDeque<SendBatch> = VecDeque::new();
     let mut awaiting_video_keyframe = SendKeyframeGate::default();
@@ -2901,7 +2901,7 @@ mod tests {
     }
 
     // Regression: a wedged relay write must NOT freeze the receive/playout path. This reproduces the
-    // root cause of the whatsapp-rust<->whatsapp-rust glitching: with the old inline
+    // root cause of the wangcap-bridge<->wangcap-bridge glitching: with the old inline
     // `transport.send().await`, the first send (the STUN allocate) blocked the whole loop, so inbound
     // packets never decoded and the speaker starved (silent/choppy audio). Now the send is decoupled,
     // so injected peer RTP still decodes to audible playout while the send is stuck forever.

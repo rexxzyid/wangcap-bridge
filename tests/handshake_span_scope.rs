@@ -31,10 +31,10 @@ use wacore::libsignal::protocol::KeyPair;
 use wacore::runtime::{AbortHandle, Runtime};
 use wacore_binary::consts::{NOISE_PATTERN_XX, WA_CONN_HEADER};
 use wacore_noise::test_util::build_cert_chain_bytes;
-use whatsapp_rust::handshake::{NoiseCertPolicy, do_handshake_with_cert_policy};
-use whatsapp_rust::socket::noise_socket::SendObservers;
-use whatsapp_rust::transport::{Transport, TransportEvent};
-use whatsapp_rust::waproto::whatsapp as wa;
+use wangcap_bridge::handshake::{NoiseCertPolicy, do_handshake_with_cert_policy};
+use wangcap_bridge::socket::noise_socket::SendObservers;
+use wangcap_bridge::transport::{Transport, TransportEvent};
+use wangcap_bridge::waproto::whatsapp as wa;
 
 const HANDSHAKE_SPAN: &str = "wa.conn.handshake";
 
@@ -240,11 +240,11 @@ async fn xx_serve_full(
     wait_for_send(sent, 2).await;
 }
 
-async fn paired_pm() -> Arc<whatsapp_rust::store::persistence_manager::PersistenceManager> {
-    let backend: Arc<dyn whatsapp_rust::store::traits::Backend> =
+async fn paired_pm() -> Arc<wangcap_bridge::store::persistence_manager::PersistenceManager> {
+    let backend: Arc<dyn wangcap_bridge::store::traits::Backend> =
         Arc::new(wacore::store::InMemoryBackend::new());
     let pm = Arc::new(
-        whatsapp_rust::store::persistence_manager::PersistenceManager::new(backend)
+        wangcap_bridge::store::persistence_manager::PersistenceManager::new(backend)
             .await
             .expect("pm init"),
     );

@@ -1,4 +1,4 @@
-//! Tokio WebSocket transport for whatsapp-rust.
+//! Tokio WebSocket transport for wangcap-bridge.
 //!
 //! For custom connections, use [`from_websocket`].
 
@@ -387,7 +387,7 @@ impl TokioWebSocketTransportFactory {
     /// storage across factories, clone the rustls payload, not `Connector`:
     ///
     /// ```
-    /// use whatsapp_rust_tokio_transport::{
+    /// use wangcap_bridge_tokio_transport::{
     ///     Connector, TokioWebSocketTransportFactory, default_tls_connector,
     /// };
     ///

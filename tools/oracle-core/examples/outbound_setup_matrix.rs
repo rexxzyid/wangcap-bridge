@@ -59,7 +59,7 @@
 //! therefore implemented rather than stubbed, and copies the bytes while they
 //! exist — `Runtime::signaling()` returns them.
 //!
-//! Decoding those 179 bytes with **whatsapp-rust's** parser, which shares no
+//! Decoding those 179 bytes with **wangcap-bridge's** parser, which shares no
 //! lineage with the engine that produced them, gives a stanza:
 //!
 //! ```xml
@@ -378,7 +378,7 @@ fn main() -> anyhow::Result<()> {
                 .collect();
             println!("     {}", head.join(" "));
 
-            // Decode it with **whatsapp-rust's** parser — an implementation
+            // Decode it with **wangcap-bridge's** parser — an implementation
             // that shares no lineage with the engine that produced these bytes.
             // If it parses, the engine's output is a stanza in the sense the
             // rest of the ecosystem means, and this is RFC-0005's cross-check

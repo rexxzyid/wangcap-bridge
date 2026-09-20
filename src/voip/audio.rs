@@ -9,7 +9,7 @@ use wacore::voip::{ForeignCodecError, depacketize_opus_from_mlow, packetize_opus
 
 // The audio endpoint traits live in the neutral contract (`wacore::voip_control::ports`), so a
 // backend can be handed the platform's endpoints without the engine. Re-exported for the historical
-// `whatsapp_rust::voip::audio::*` paths.
+// `wangcap_bridge::voip::audio::*` paths.
 pub use wacore::voip_control::{AudioSink, AudioSource, EncodedAudioSink, EncodedAudioSource};
 
 pub const WA_SAMPLE_RATE: u32 = 16_000;

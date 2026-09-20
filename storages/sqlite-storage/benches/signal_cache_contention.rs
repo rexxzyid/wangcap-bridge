@@ -16,7 +16,7 @@ use wacore::libsignal::protocol::{
 };
 use wacore::store::signal_cache::SignalStoreCache;
 use wacore::time::Instant;
-use whatsapp_rust_sqlite_storage::SqliteStore;
+use wangcap_bridge_sqlite_storage::SqliteStore;
 
 const FIXTURE_SEED: u64 = 0x51A6_5A17_EC4A_5E01;
 const DEADLINE: Duration = Duration::from_secs(30);

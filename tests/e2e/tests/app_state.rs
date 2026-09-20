@@ -4,7 +4,7 @@ use e2e_tests::TestClient;
 use log::info;
 use wacore::store::traits::AppSyncStore;
 use wacore::types::events::Event;
-use whatsapp_rust::{NodeFilter, waproto::whatsapp as wa};
+use wangcap_bridge::{NodeFilter, waproto::whatsapp as wa};
 
 // ─── Initial Sync Tests ─────────────────────────────────────────────
 

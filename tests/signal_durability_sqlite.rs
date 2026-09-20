@@ -10,8 +10,8 @@ use wacore::libsignal::protocol::{
     SessionState, create_sender_key_distribution_message, group_encrypt,
 };
 use wacore::libsignal::store::sender_key_name::SenderKeyName;
-use whatsapp_rust::store::SqliteStore;
-use whatsapp_rust::store::signal_cache::SignalStoreCache;
+use wangcap_bridge::store::SqliteStore;
+use wangcap_bridge::store::signal_cache::SignalStoreCache;
 
 const CHILD_MARKER: &str = "SIGNAL_DURABILITY_CRASH_CHILD";
 const DATABASE_ENV: &str = "SIGNAL_DURABILITY_DATABASE";
@@ -222,7 +222,7 @@ async fn signal_durability_sqlite_crash_child() {
 #[ignore = "run by signal-durability-nightly.yml"]
 async fn signal_durability_sqlite_process_restart() {
     let database = std::env::temp_dir().join(format!(
-        "whatsapp-rust-signal-durability-{}.db",
+        "wangcap-bridge-signal-durability-{}.db",
         uuid::Uuid::new_v4()
     ));
     let executable = std::env::current_exe().expect("current test executable");

@@ -459,7 +459,7 @@ impl IncomingCall {
 
     /// Attach the media material the parser captured from an `<offer>`. Not
     /// `pub`: the parser below is the only caller, unlike the sibling setters
-    /// this crate exposes for `whatsapp-rust` to call.
+    /// this crate exposes for `wangcap-bridge` to call.
     #[cfg(feature = "voip-control")]
     pub(crate) fn with_media(mut self, media: Option<Box<MediaOffer>>) -> Self {
         self.media = media;

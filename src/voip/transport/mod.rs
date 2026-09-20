@@ -5,7 +5,7 @@
 //! is a feature of its own is in [`crate::voip`], and stays there.
 //!
 //! What is decided *here* is that the module around it is not gated: `RandTxIds` and the packet
-//! demux have always been reachable at `whatsapp_rust::voip::transport::*`, neither needs a
+//! demux have always been reachable at `wangcap_bridge::voip::transport::*`, neither needs a
 //! socket, and gating the module for their sake would break every codec-only consumer that imports
 //! one -- a build with `voip-mlow` and no relay is exactly the build a browser makes.
 
@@ -21,7 +21,7 @@ pub use native::*;
 pub use crate::voip::driver::RandTxIds;
 
 // First-byte relay-packet demux, in the portable core; re-exported so the existing
-// `whatsapp_rust::voip::transport::{classify_relay_packet, RelayPacketKind}` paths stay stable on
+// `wangcap_bridge::voip::transport::{classify_relay_packet, RelayPacketKind}` paths stay stable on
 // every build that has ever had them.
 #[cfg(feature = "voip-engine-wacore")]
 pub use wacore::voip::demux::{RelayPacketKind, classify_relay_packet};

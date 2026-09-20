@@ -497,7 +497,7 @@ async fn run_metered<F: std::future::Future>(
 /// at build time, not afterwards.
 ///
 /// ```no_run
-/// # use whatsapp_rust::prelude::*;
+/// # use wangcap_bridge::prelude::*;
 /// # async fn example() -> Result<(), Box<dyn std::error::Error>> {
 /// let bot = Bot::builder()
 ///     .with_backend(SqliteStore::new("whatsapp.db").await?)
@@ -895,7 +895,7 @@ impl<B, T, H, R> BotBuilder<B, T, H, R> {
     ///
     /// - **It does not serialize.** `ureq::Agent` holds its pool lock only
     ///   across checkout, so concurrent requests through one client overlap.
-    ///   `whatsapp-rust-ureq-http-client`'s
+    ///   `wangcap-bridge-ureq-http-client`'s
     ///   `a_shared_client_runs_concurrent_requests_concurrently` holds 64 of
     ///   them in flight at once against a server that answers none until all 64
     ///   have arrived. Each request still occupies one `spawn_blocking` thread,
@@ -1376,7 +1376,7 @@ impl<B, T, H, R> BotBuilder<B, T, H, R> {
     ///
     /// # Example
     /// ```rust,ignore
-    /// use whatsapp_rust::pair_code::PairCodeOptions;
+    /// use wangcap_bridge::pair_code::PairCodeOptions;
     ///
     /// // Platform identity is derived from `DeviceProps` configured via
     /// // `Bot::builder().with_device_props(...)`. Explicit overrides below
@@ -1485,7 +1485,7 @@ impl<B, T, H, R> BotBuilder<B, T, H, R> {
     ///
     /// # Example
     /// ```rust,ignore
-    /// use whatsapp_rust::{CacheConfig, CacheEntryConfig};
+    /// use wangcap_bridge::{CacheConfig, CacheEntryConfig};
     ///
     /// // Disable TTL for group and device caches (good for bots with few groups)
     /// let bot = Bot::builder()
@@ -1640,7 +1640,7 @@ mod tests {
     use crate::http::{HttpClient, HttpRequest, HttpResponse};
     use crate::store::SqliteStore;
     use anyhow::Result;
-    use whatsapp_rust_tokio_transport::TokioWebSocketTransportFactory;
+    use wangcap_bridge_tokio_transport::TokioWebSocketTransportFactory;
 
     // Mock HTTP client for testing
     #[derive(Debug, Clone)]

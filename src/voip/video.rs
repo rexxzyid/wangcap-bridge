@@ -6,6 +6,6 @@
 //! compatibility cadence of 15 fps; custom sources report their RTP stride explicitly.
 //!
 //! The types themselves live in the neutral contract (`wacore::voip_control::ports`), re-exported
-//! here so the historical `whatsapp_rust::voip::{VideoSource, VideoSink, VideoFrame}` paths resolve.
+//! here so the historical `wangcap_bridge::voip::{VideoSource, VideoSink, VideoFrame}` paths resolve.
 
 pub use wacore::voip_control::{TimedVideoFrame, VideoFrame, VideoSink, VideoSource};

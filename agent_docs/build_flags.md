@@ -2,7 +2,7 @@
 
 Codegen flags this library does **not** set for you, what each is worth on its
 hot paths, and the CPU floor each one raises. Nothing here changes a default:
-`whatsapp-rust` is published to crates.io and cannot know what it will run on,
+`wangcap-bridge` is published to crates.io and cannot know what it will run on,
 and every flag below that pays is one that makes the binary die on a CPU that
 lacks the feature.
 
@@ -217,7 +217,7 @@ workspace does not set it: `.github/workflows/wasm.yml` builds with
 place.
 
 What is verified here is that the flag is safe to recommend: adding
-`-Ctarget-feature=+simd128` to that job's flags builds `whatsapp-rust` for
+`-Ctarget-feature=+simd128` to that job's flags builds `wangcap-bridge` for
 `wasm32-unknown-unknown` clean, so a consumer who sets it does not hit a
 compile error in this tree.
 

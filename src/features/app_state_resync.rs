@@ -194,7 +194,7 @@ impl Client {
     /// # Example
     ///
     /// ```no_run
-    /// # use whatsapp_rust::{AppStateResyncMode, Client, WAPatchName};
+    /// # use wangcap_bridge::{AppStateResyncMode, Client, WAPatchName};
     /// # async fn f(client: &Client) -> Result<(), Box<dyn std::error::Error>> {
     /// let report = client
     ///     .resync_app_state([WAPatchName::Regular], AppStateResyncMode::Incremental)

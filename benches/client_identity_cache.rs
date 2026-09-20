@@ -28,7 +28,7 @@ use std::pin::pin;
 use std::sync::OnceLock;
 use std::task::{Context, Poll, Waker};
 use wacore::types::{LearningSource, LidPnEntry};
-use whatsapp_rust::lid_pn_cache::LidPnCache;
+use wangcap_bridge::lid_pn_cache::LidPnCache;
 
 fn main() {
     divan::main();

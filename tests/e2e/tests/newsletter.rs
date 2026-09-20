@@ -1,8 +1,8 @@
 use e2e_tests::TestClient;
 use log::info;
 use wacore::types::events::Event;
-use whatsapp_rust::download::MediaType;
-use whatsapp_rust::waproto::whatsapp as wa;
+use wangcap_bridge::download::MediaType;
+use wangcap_bridge::waproto::whatsapp as wa;
 
 #[tokio::test]
 async fn test_newsletter_create_and_list() -> anyhow::Result<()> {

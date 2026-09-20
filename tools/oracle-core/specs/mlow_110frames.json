@@ -8,7 +8,7 @@
     "Inputs: tools/oracle-core/specs/frames3.raw = synth_mic.raw frames 0-2 concatenated (3x1920 s16le @16kHz).",
     "Locked 2026-09-04: packet+pcm hashes below are the vector. Any byte drift fails here, not downstream.",
     "110-frame full-stream vector: open once, per frame k (0..109): encode synth frame -> exact packet -> decode back. Encoder/decoder state evolve across the whole stream in one instance.",
-    "Input tools/oracle-core/specs/synth_mic.raw = copy of whatsapp-rust wacore/src/voip/mlow/testdata/synth_mic.raw (sha256 aec92c54ecc1e1f81dc20c5a730499af5f4efbd4ed90fea3ffab26e606f8f569).",
+    "Input tools/oracle-core/specs/synth_mic.raw = copy of wangcap-bridge wacore/src/voip/mlow/testdata/synth_mic.raw (sha256 aec92c54ecc1e1f81dc20c5a730499af5f4efbd4ed90fea3ffab26e606f8f569).",
     "Locked 2026-09-04: 110 packets (TOC 11x10/3x12/96x50) + 110 PCM. Correlation 0.9628 vs libopus useSmpl ref; silence frames 60-69+90 take DTX path as expected."
   ],
   "module": {

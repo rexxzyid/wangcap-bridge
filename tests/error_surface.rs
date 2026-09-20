@@ -13,18 +13,18 @@ use std::time::Duration;
 use wacore_binary::OwnedNodeRef;
 use wacore_binary::builder::NodeBuilder;
 
-use whatsapp_rust::client::{ConnectError, ConnectStage};
-use whatsapp_rust::handshake::HandshakeError;
+use wangcap_bridge::client::{ConnectError, ConnectStage};
+use wangcap_bridge::handshake::HandshakeError;
 
 use wacore::request::{IqError as CoreIqError, ServerErrorCode};
 use wacore::store::error::StoreError;
-use whatsapp_rust::features::{
+use wangcap_bridge::features::{
     BlockingError, ChatStateError, CommunityError, ContactError, GroupError, MediaReuploadError,
     MexError, NewsletterError, PollError, PresenceError, ProfileError, StanzaResponseError,
     TcTokenError,
 };
-use whatsapp_rust::http::HttpStatusError;
-use whatsapp_rust::{
+use wangcap_bridge::http::HttpStatusError;
+use wangcap_bridge::{
     ClientError, ErrorChainExt, IqError, RejectionStanza, SendError, ServerRejection,
 };
 

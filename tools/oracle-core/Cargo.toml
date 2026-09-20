@@ -39,10 +39,10 @@ disallowed_types = "allow"
 [dev-dependencies]
 base64 = "0.23.0"
 # Used only to build wire-format stanzas for the signaling tests: the oracle is
-# fed the same bytes whatsapp-rust would emit. `simd` needs nightly, and this is
+# fed the same bytes wangcap-bridge would emit. `simd` needs nightly, and this is
 # not a hot path.
 #
-# From crates.io rather than a path to a sibling whatsapp-rust checkout: as a
+# From crates.io rather than a path to a sibling wangcap-bridge checkout: as a
 # path it was a dev-dependency that a fresh clone could not resolve, so nothing
 # built at all — not the tests, not the `oracle` binary, not `cargo metadata`.
 wacore-binary = { workspace = true }

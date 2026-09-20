@@ -5,7 +5,7 @@ This audit covers runtime access, ED construction and TLS state ownership.
 
 ## Runtime
 
-Keep `whatsapp_rust::TokioRuntime`, `runtime_impl::TokioRuntime` and the prelude
+Keep `wangcap_bridge::TokioRuntime`, `runtime_impl::TokioRuntime` and the prelude
 export behind `tokio-runtime`. A standalone consumer compiled with defaults
 disabled, using `Runtime` and the Tokio transport without importing `Client`.
 SQLite, Diesel, ureq and OS signal handling were absent. The main crate still
@@ -29,7 +29,7 @@ that limit rather than claiming multiple workers eliminate cooperative yielding.
 
 The consumer's release build compiled 145 packages including itself. Compared
 with its core/transport-only graph, enabling the existing adapter added
-`whatsapp-rust` and `scopeguard`. Symbol inspection found adapter functions but
+`wangcap-bridge` and `scopeguard`. Symbol inspection found adapter functions but
 no named Client or Signal functions. That is not proof that all unrelated
 inlined code or anonymous data disappeared. No adapter relocation or linked-size
 improvement is claimed.
@@ -133,8 +133,8 @@ Toolchain was rustc `1.98.0-nightly (01dfd7924 2026-06-15)`, with two build jobs
 | --- | --- |
 | `cargo fmt --all` | Passed |
 | `cargo clippy --workspace --all-targets -- -D warnings` | Passed |
-| `cargo nextest run --profile ci -p wacore -p whatsapp-rust --lib` | 3,643 passed, three existing skips |
-| `cargo nextest run -p whatsapp-rust-tokio-transport --lib --locked` | 12 passed |
+| `cargo nextest run --profile ci -p wacore -p wangcap-bridge --lib` | 3,643 passed, three existing skips |
+| `cargo nextest run -p wangcap-bridge-tokio-transport --lib --locked` | 12 passed |
 | Transport stress, 20 iterations without retries | 240 passed |
 | Transport doctests | One passed |
 | Runtime-only main doctest | One passed |

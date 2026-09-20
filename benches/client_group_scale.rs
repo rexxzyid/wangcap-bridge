@@ -26,7 +26,7 @@
 use divan::black_box;
 use std::collections::HashMap;
 use std::sync::{Mutex, OnceLock};
-use whatsapp_rust::bench_support::{GROUP_COUNTS, GroupScaleHarness, SCALE_GROUP_MEMBERS};
+use wangcap_bridge::bench_support::{GROUP_COUNTS, GroupScaleHarness, SCALE_GROUP_MEMBERS};
 
 fn main() {
     divan::main();

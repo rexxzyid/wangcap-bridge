@@ -8,9 +8,9 @@
 //! parallel hierarchy exists.
 //!
 //! ```no_run
-//! use whatsapp_rust::ErrorChainExt;
+//! use wangcap_bridge::ErrorChainExt;
 //!
-//! # fn demo(err: whatsapp_rust::features::GroupError) {
+//! # fn demo(err: wangcap_bridge::features::GroupError) {
 //! if let Some(rejection) = err.server_rejection() {
 //!     eprintln!("server said {}: {}", rejection.code, rejection.text);
 //! } else if err.is_transport_unavailable() {
@@ -23,8 +23,8 @@
 //! `AsRef<dyn Error>` impls and both are covered here.
 //!
 //! ```no_run
-//! # use whatsapp_rust::ErrorChainExt;
-//! # fn demo(err: whatsapp_rust::anyhow::Error) {
+//! # use wangcap_bridge::ErrorChainExt;
+//! # fn demo(err: wangcap_bridge::anyhow::Error) {
 //! let cause: &(dyn std::error::Error + 'static) = err.as_ref();
 //! let _ = cause.server_rejection();
 //! # }

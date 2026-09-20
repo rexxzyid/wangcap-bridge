@@ -70,7 +70,7 @@ pub use wacore::voip_control::{
 };
 // The platform transport seam, beside the facade that consults it: a consumer installing one
 // through `Client::set_relay_transport_provider` reaches for the whole set below, and having to
-// name `wacore` for them while naming `whatsapp_rust` for the call is a paper cut on the one path
+// name `wacore` for them while naming `wangcap_bridge` for the call is a paper cut on the one path
 // this crate now asks a platform to implement.
 pub use wacore::voip_control::transport::{
     RelayEndpointParams, RelayTransport, RelayTransportEvent, RelayTransportFactory,

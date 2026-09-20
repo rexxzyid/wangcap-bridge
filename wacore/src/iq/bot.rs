@@ -2,7 +2,7 @@
 //!
 //! This is the catalogue of first-party AI bots the server offers an account:
 //! a set of display sections, each holding `(jid, persona_id)` pairs. It is not
-//! related to the bot *framework* in the `whatsapp-rust` crate, which builds a
+//! related to the bot *framework* in the `wangcap-bridge` crate, which builds a
 //! client that answers messages.
 //!
 //! The persona ids returned here are the input to the `WAWebFetchBotProfilesGQLQuery`

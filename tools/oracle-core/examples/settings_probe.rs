@@ -22,7 +22,7 @@ use wacore_binary::{Jid, Node, marshal};
 
 const CALL_ID: &str = "0102030405060708";
 
-/// The blob `whatsapp-rust` builds for a standard-Opus answer. The keys are the
+/// The blob `wangcap-bridge` builds for a standard-Opus answer. The keys are the
 /// ones `getVoipParam` is asked for elsewhere in WhatsApp Web, which is what
 /// made the hypothesis worth testing: `options.*` on both sides.
 const SETTINGS: &[u8] =

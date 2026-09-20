@@ -27,7 +27,7 @@ env:
 
 jobs:
   wasm:
-    name: Build whatsapp-rust (wasm32, release)
+    name: Build wangcap-bridge (wasm32, release)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -50,17 +50,17 @@ jobs:
           cache-targets: "true"
       # The host test invokes rustc for WASM cfg checks; do not cross-compile the test itself.
       - name: Run native fixture cfg probe
-        run: cargo test -p whatsapp-rust --test native_test_support_cfg -- --ignored
-      # Mirrors how whatsapp-rust-bridge consumes the crate: lib only (the
+        run: cargo test -p wangcap-bridge --test native_test_support_cfg -- --ignored
+      # Mirrors how wangcap-bridge-bridge consumes the crate: lib only (the
       # binary pulls tokio/sqlite), no default features. Guards against code
       # reachable from wasm regressing on tokio/std-only APIs.
       # getrandom needs both the wasm_js feature (declared for wasm32 in
       # Cargo.toml) and this backend cfg.
-      - name: Build whatsapp-rust lib for wasm32 (release)
+      - name: Build wangcap-bridge lib for wasm32 (release)
         env:
           RUSTFLAGS: '--cfg getrandom_backend="wasm_js"'
         run: >
-          cargo build -p whatsapp-rust --lib --release
+          cargo build -p wangcap-bridge --lib --release
           --target wasm32-unknown-unknown
           --no-default-features
       # The SQLite store reaches wasm through `storages/sqlite-storage/src/pool.rs`,
@@ -73,7 +73,7 @@ jobs:
         env:
           RUSTFLAGS: '--cfg getrandom_backend="wasm_js"'
         run: >
-          cargo build -p whatsapp-rust-sqlite-storage --lib --release
+          cargo build -p wangcap-bridge-sqlite-storage --lib --release
           --target wasm32-unknown-unknown
           --no-default-features --features wacore/js
       - name: Run durability probe ID regression on wasm32
@@ -117,10 +117,10 @@ jobs:
       # compile_error!s on this target), so what a page supplies is a `RelayTransportProvider` and
       # not a reimplementation of the call flow. Without this step that split silently regresses the
       # first time something in the facade reaches for a socket or a clock.
-      - name: Build whatsapp-rust VoIP runtime for wasm32 (release)
+      - name: Build wangcap-bridge VoIP runtime for wasm32 (release)
         env:
           RUSTFLAGS: '--cfg getrandom_backend="wasm_js"'
         run: >
-          cargo build -p whatsapp-rust --lib --release
+          cargo build -p wangcap-bridge --lib --release
           --target wasm32-unknown-unknown
           --no-default-features --features voip-mlow

@@ -20,7 +20,7 @@ use std::time::Duration;
 
 use log::{error, info};
 use wacore::stats::CpuMeter;
-use whatsapp_rust::prelude::*;
+use wangcap_bridge::prelude::*;
 
 async fn build_session(db_path: &str, label: &'static str) -> Option<(Bot, Arc<CpuMeter>)> {
     let store = match SqliteStore::new(db_path).await {

@@ -14,9 +14,9 @@
 
 use std::sync::Arc;
 
-use whatsapp_rust::store::persistence_manager::PersistenceManager;
-use whatsapp_rust::wacore::store::InMemoryBackend;
-use whatsapp_rust::{Client, TokioRuntime};
+use wangcap_bridge::store::persistence_manager::PersistenceManager;
+use wangcap_bridge::wacore::store::InMemoryBackend;
+use wangcap_bridge::{Client, TokioRuntime};
 
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {

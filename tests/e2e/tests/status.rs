@@ -3,8 +3,8 @@
 
 use e2e_tests::{TestClient, has_child, text_msg};
 use wacore_binary::node::Node;
-use whatsapp_rust::Jid;
-use whatsapp_rust::features::{GroupCreateOptions, GroupParticipantOptions};
+use wangcap_bridge::Jid;
+use wangcap_bridge::features::{GroupCreateOptions, GroupParticipantOptions};
 
 fn child_attr(node: &Node, child_tag: &str, attr: &str) -> Option<String> {
     node.children()?
@@ -35,7 +35,7 @@ async fn status_broadcast_send_is_wa_web_compliant() -> anyhow::Result<()> {
         .send_text(
             "hello status",
             0xFF1E_6E4F,
-            whatsapp_rust::waproto::whatsapp::message::extended_text_message::FontType::SYSTEM,
+            wangcap_bridge::waproto::whatsapp::message::extended_text_message::FontType::SYSTEM,
             &[recipient],
             Default::default(),
         )
@@ -79,7 +79,7 @@ async fn status_send_rejects_empty_recipients() -> anyhow::Result<()> {
         .send_text(
             "no audience",
             0xFF1E_6E4F,
-            whatsapp_rust::waproto::whatsapp::message::extended_text_message::FontType::SYSTEM,
+            wangcap_bridge::waproto::whatsapp::message::extended_text_message::FontType::SYSTEM,
             &[],
             Default::default(),
         )
@@ -110,7 +110,7 @@ async fn status_send_rejects_non_user_recipient() -> anyhow::Result<()> {
         .send_text(
             "wrong audience",
             0xFF1E_6E4F,
-            whatsapp_rust::waproto::whatsapp::message::extended_text_message::FontType::SYSTEM,
+            wangcap_bridge::waproto::whatsapp::message::extended_text_message::FontType::SYSTEM,
             &[group_jid],
             Default::default(),
         )

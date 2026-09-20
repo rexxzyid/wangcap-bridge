@@ -16,8 +16,8 @@ use std::sync::Arc;
 use e2e_tests::TestClient;
 use log::info;
 use wacore::store::InMemoryBackend;
-use whatsapp_rust::bot::Bot;
-use whatsapp_rust_ureq_http_client::UreqHttpClient;
+use wangcap_bridge::bot::Bot;
+use wangcap_bridge_ureq_http_client::UreqHttpClient;
 
 /// Resident memory split into its anonymous and file-backed halves.
 #[derive(Debug, Clone, Copy, Default)]
@@ -191,11 +191,11 @@ async fn client_construction_footprint() -> anyhow::Result<()> {
         let bot = Bot::builder()
             .with_backend_arc(Arc::new(InMemoryBackend::new()))
             .with_transport_factory(
-                whatsapp_rust_tokio_transport::TokioWebSocketTransportFactory::new()
+                wangcap_bridge_tokio_transport::TokioWebSocketTransportFactory::new()
                     .with_url("wss://127.0.0.1:1/ws/chat"),
             )
             .with_http_client(UreqHttpClient::new())
-            .with_runtime(whatsapp_rust::TokioRuntime)
+            .with_runtime(wangcap_bridge::TokioRuntime)
             .with_version((2, 3000, 0))
             .with_push_name(format!("footprint_{i}"))
             .build()

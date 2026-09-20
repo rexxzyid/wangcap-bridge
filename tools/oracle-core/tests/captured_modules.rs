@@ -1,7 +1,7 @@
 //! Integration tests against the real captured modules.
 //!
 //! They skip rather than fail when the capture directory is absent, because the
-//! artifacts live in the whatsapp-rust checkout and this crate must stay usable
+//! artifacts live in the wangcap-bridge checkout and this crate must stay usable
 //! on its own.
 
 use oracle_core::inspect::{EntryKind, Requirement};

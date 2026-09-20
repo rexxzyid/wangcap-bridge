@@ -27,10 +27,10 @@ The capture stays local, and only the aggregate leaves it: report the rate, neve
 ## Which crate
 
 - **wacore** — protocol logic, state traits, crypto helpers, data models. Platform-agnostic: it also builds for wasm32 and ESP32.
-- **whatsapp-rust** — runtime orchestration, storage, user-facing API.
+- **wangcap-bridge** — runtime orchestration, storage, user-facing API.
 - **waproto** — protobuf structures only.
 
-If a feature seems to need Tokio inside `wacore`, the split is wrong: the runtime-dependent half belongs in `whatsapp-rust`.
+If a feature seems to need Tokio inside `wacore`, the split is wrong: the runtime-dependent half belongs in `wangcap-bridge`.
 
 ## Order of construction
 

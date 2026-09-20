@@ -946,7 +946,7 @@ mod tests {
     async fn ureq_client() -> Arc<Client> {
         crate::test_utils::create_test_client_with_http(
             "cdn-status",
-            Arc::new(whatsapp_rust_ureq_http_client::UreqHttpClient::new()),
+            Arc::new(wangcap_bridge_ureq_http_client::UreqHttpClient::new()),
         )
         .await
     }

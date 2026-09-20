@@ -23,8 +23,8 @@ use std::sync::Mutex;
 use std::time::Duration;
 
 use log::{debug, warn};
-use whatsapp_rust::async_trait;
-use whatsapp_rust_wam_catalog::{Channel, WamBuffer, WamEvent, constants, events, sampling};
+use wangcap_bridge::async_trait;
+use wangcap_bridge_wam_catalog::{Channel, WamBuffer, WamEvent, constants, events, sampling};
 
 use crate::identity::WamIdentity;
 use crate::store::{PendingBuffer, WamStore};

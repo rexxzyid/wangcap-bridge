@@ -4,7 +4,7 @@
 //! `<offer>` is captured. Side B (answerer) is fed an offer through
 //! `handleIncomingSignalingOffer`, then `acceptCall` is attempted and whatever
 //! the engine emits is captured. Each emitted stanza is diffed field by field
-//! against the matching whatsapp-rust builder; the run ends with a VERDICTS
+//! against the matching wangcap-bridge builder; the run ends with a VERDICTS
 //! block naming the first divergence, or the stall point with engine-log
 //! evidence when a side emits nothing.
 //!

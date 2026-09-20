@@ -104,7 +104,7 @@ fn the_virtual_clock_advances() {
 }
 
 /// Two runs must agree byte for byte, including the traces. Without this, any
-/// comparison against whatsapp-rust is unattributable.
+/// comparison against wangcap-bridge is unattributable.
 #[test]
 fn two_runs_produce_identical_traces() {
     let Some(mut first) = voip() else {

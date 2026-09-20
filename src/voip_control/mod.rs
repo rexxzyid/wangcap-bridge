@@ -14,7 +14,7 @@
 /// import through the seam.
 pub use wacore::types::group_call::GroupCallUpdate;
 /// The seam surface, spelled so an external crate implements [`VoipMediaBackend`] importing only
-/// `whatsapp_rust::voip_control::*`: every neutral command, event, port, and channel the contract
+/// `wangcap_bridge::voip_control::*`: every neutral command, event, port, and channel the contract
 /// names, with no `wacore` in the path.
 pub use wacore::voip_control::{
     AudioSink, AudioSource, CallDirection, EncodedAudioSink, EncodedAudioSource, MediaAudioCodec,
